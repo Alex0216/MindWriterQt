@@ -72,8 +72,8 @@ KeyboardWidget::KeyboardWidget(QWidget *parent) :
             QLabel *key = new QLabel("A");
             key->setFont(f);
             key->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
-            key->setMinimumWidth(50);
-            key->setMinimumHeight(50);
+            key->setMinimumWidth(90);
+            key->setMinimumHeight(90);
             key->setScaledContents(true);
             key->setFrameShape(QFrame::Box);
             key->setLineWidth(3);
