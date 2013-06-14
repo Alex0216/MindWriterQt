@@ -9,6 +9,7 @@
 
 #define KEYBOARD_WIDTH 10
 #define KEYBOARD_HEIGHT 4
+#define DELAY 300
 
 class KeyboardWidget : public QWidget
 {
@@ -24,7 +25,7 @@ public slots:
     void update();
 
 private:
-    QVector<QLabel* > *keys;
+    QVector<QLabel* > keys;
     QPalette *labelInactifPalette;
     QPalette *labelActifPalette;
     QPalette *backgroundPalette;

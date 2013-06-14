@@ -3,7 +3,7 @@
 KeyboardWidget::KeyboardWidget(QWidget *parent) :
     QWidget(parent)
 {
-    keys = new QVector<QLabel*>();
+    keys = QVector<QLabel*>();
     QGridLayout *grid = new QGridLayout;
 
     /*
@@ -81,14 +81,14 @@ KeyboardWidget::KeyboardWidget(QWidget *parent) :
             key->setPalette(*labelInactifPalette);
             key->setAutoFillBackground(true);
             grid->addWidget(key, row, column);
-            keys->push_back(key);
+            keys.push_back(key);
         }
     }
 
     setLayout(grid);
 
     // Setting the timer for the main loop
-    timer.setInterval(500);
+    timer.setInterval(DELAY);
     timer.start();
     connect(&timer, SIGNAL(timeout()), this, SLOT(update()));
     updateRow = 0;
@@ -121,13 +121,13 @@ void KeyboardWidget::update()
 void KeyboardWidget::labelOn(int row, int column)
 {
     int index = column + row*KEYBOARD_WIDTH;
-    keys->at(index)->setPalette(*labelActifPalette);
+    keys.at(index)->setPalette(*labelActifPalette);
 
 }
 
 void KeyboardWidget::labelOff(int row, int column)
 {
     int index = column + row*KEYBOARD_WIDTH;
-    keys->at(index)->setPalette(*labelInactifPalette);
+    keys.at(index)->setPalette(*labelInactifPalette);
 
 }

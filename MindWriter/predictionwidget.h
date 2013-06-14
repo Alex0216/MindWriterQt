@@ -2,6 +2,10 @@
 #define PREDICTIONWIDGET_H
 
 #include <QWidget>
+#include <QHBoxLayout>
+#include <QLabel>
+
+#define NB_PREDICTION 4
 
 class PredictionWidget : public QWidget
 {
@@ -12,6 +16,10 @@ public:
 signals:
     
 public slots:
+
+private:
+    QHBoxLayout *predictionLayout;
+    QVector<QLabel*> predictions;
     
 };
 
