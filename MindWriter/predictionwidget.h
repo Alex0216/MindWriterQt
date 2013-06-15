@@ -5,13 +5,14 @@
 #include <QHBoxLayout>
 #include <QLabel>
 
-#define NB_PREDICTION 4
 
 class PredictionWidget : public QWidget
 {
     Q_OBJECT
 public:
     explicit PredictionWidget(QWidget *parent = 0);
+
+    static const int NB_PREDICTION = 4;
     
 signals:
     

@@ -7,9 +7,6 @@
 #include <QPalette>
 #include <QTimer>
 
-#define KEYBOARD_WIDTH 10
-#define KEYBOARD_HEIGHT 4
-#define DELAY 300
 
 class KeyboardWidget : public QWidget
 {
@@ -18,7 +15,14 @@ public:
     explicit KeyboardWidget(QWidget *parent = 0);
     void labelOn(int row, int column);
     void labelOff(int row, int column);
-    
+    void setColorScheme(QColor letterOn, QColor labelOn, QColor letterOff,
+                        QColor labelOff, QColor background);
+
+
+    static const int KEYBOARD_WIDTH = 10;
+    static const int KEYBOARD_HEIGHT = 4;
+    static const int DELAY = 300;
+
 signals:
     
 public slots:
@@ -26,9 +30,9 @@ public slots:
 
 private:
     QVector<QLabel* > keys;
-    QPalette *labelInactifPalette;
-    QPalette *labelActifPalette;
-    QPalette *backgroundPalette;
+    QPalette labelInactifPalette;
+    QPalette labelActifPalette;
+    QPalette backgroundPalette;
     QTimer timer;
     int updateRow;
     int updateColumn;
