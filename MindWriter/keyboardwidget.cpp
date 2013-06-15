@@ -136,7 +136,7 @@ void KeyboardWidget::setColorScheme(QColor letterOn, QColor labelOn, QColor lett
     setPalette(backgroundPalette);
     setAutoFillBackground(true);
 
-    for (int i = 0; i < KEYBOARD_HEIGHT*KEYBOARD_WIDTH; ++i )
+    for (int i = 0; i < keys.size(); ++i )
     {
         keys.at(i)->setPalette(labelInactifPalette);
     }

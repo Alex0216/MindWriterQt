@@ -12,6 +12,10 @@ class PredictionWidget : public QWidget
 public:
     explicit PredictionWidget(QWidget *parent = 0);
 
+    void setColorScheme(QColor letterOn, QColor labelOn, QColor letterOff,
+                        QColor labelOff, QColor background);
+
+
     static const int NB_PREDICTION = 4;
     
 signals:
@@ -21,6 +25,10 @@ public slots:
 private:
     QHBoxLayout *predictionLayout;
     QVector<QLabel*> predictions;
+
+    QPalette labelInactifPalette;
+    QPalette labelActifPalette;
+    QPalette backgroundPalette;
     
 };
 
