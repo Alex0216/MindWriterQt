@@ -1,7 +1,7 @@
 #include "mainwindow.h"
 
-MainWindow::MainWindow(QWidget *parent) :
-    QWidget(parent)
+MainWindow::MainWindow(QMainWindow *parent) :
+    QMainWindow(parent)
 {
 
 
@@ -27,5 +27,13 @@ MainWindow::MainWindow(QWidget *parent) :
     mainLayout->addWidget(predictionW);
     mainLayout->addWidget(keyboardW);
 
-    setLayout(mainLayout);
+
+
+    //MenuBar
+    menuBar()->addMenu("File");
+    menuBar()->addMenu("Edit");
+    menuBar()->addMenu("Configuration");
+
+    setCentralWidget(new QWidget);
+    centralWidget()->setLayout(mainLayout);
 }

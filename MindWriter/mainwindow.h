@@ -1,8 +1,10 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include <QWidget>
+#include <QMainWindow>
 #include <QTextEdit>
+#include <QStatusBar>
+#include <QMenuBar>
 
 #include "keyboardwidget.h"
 #include "predictionwidget.h"
@@ -18,11 +20,11 @@ namespace defaultColorScheme
     static const QColor BACKGROUND = QColor(50,50,50,200);
 }
 
-class MainWindow : public QWidget
+class MainWindow : public QMainWindow
 {
     Q_OBJECT
 public:
-    explicit MainWindow(QWidget *parent = 0);
+    explicit MainWindow(QMainWindow *parent = 0);
     
 signals:
     
