@@ -1,9 +1,12 @@
 #include "mainwindow.h"
+#include "keyboardselectionwidget.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QWidget(parent)
 {
 
+    KeyboardSelectionWidget *test = new KeyboardSelectionWidget();
+    test->show();
 
     predictionW = new PredictionWidget();
     predictionW->setColorScheme(defaultColorScheme::LETTER_ON,
