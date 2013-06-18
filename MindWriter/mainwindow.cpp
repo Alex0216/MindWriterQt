@@ -45,6 +45,62 @@ MainWindow::MainWindow(QMainWindow *parent) :
 
     setCentralWidget(new QWidget);
     centralWidget()->setLayout(mainLayout);
+
+    flashMode_ = OneByOne;
+
+    /**
+      * Setting up the timer
+      */
+    timer_.setInterval(DELAY);
+    timer_.start();
+    connect(&timer_, SIGNAL(timeout()), this, SLOT(updateFlash()));
+    flashIndex_ = 0;
+
+    //Fill vLabelCoordinate
+    //For the PredictionWidget
+    for(int i = 0; i < predictionW->getNumberOfLabels(); ++i)
+        vLabelCoordinate.push_back(QPair<int, int>(0, i));
+    //For the KeyboardWidget
+    for(int row = 0; row < KeyboardWidget::KEYBOARD_HEIGHT; ++row)
+        for (int column = 0; column < KeyboardWidget::KEYBOARD_WIDTH; ++column)
+            vLabelCoordinate.push_back(QPair<int, int>(row, column));
+
+
+}
+
+void MainWindow::updateFlash()
+{
+
+    if(flashMode_ == OneByOne)
+    {
+       // Turn off the last label
+       int row = vLabelCoordinate.at(flashIndex_).first;
+       int column = vLabelCoordinate.at(flashIndex_).second;
+
+       if (flashIndex_ < predictionW->getNumberOfLabels())
+       {
+           predictionW->labelOff(row, column);
+       }
+       else
+           keyboardW->labelOff(row, column);
+       //Turn on the nextLabel
+       ++flashIndex_;
+
+       //Bound check
+       if( flashIndex_ >= vLabelCoordinate.size())
+           flashIndex_ = 0;
+
+       row = vLabelCoordinate.at(flashIndex_).first;
+       column = vLabelCoordinate.at(flashIndex_).second;
+
+       if (flashIndex_ < predictionW->getNumberOfLabels())
+       {
+           predictionW->labelOn(row, column);
+       }
+       else
+           keyboardW->labelOn(row, column);
+
+    }
 }
 
 void MainWindow::selectKeyboardLayout()

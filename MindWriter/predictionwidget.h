@@ -37,7 +37,15 @@ public:
     void setColorScheme(QColor letterOn, QColor labelOn, QColor letterOff,
                         QColor labelOff, QColor background);
 
+    /**
+     * @brief getNumberOfLabel
+     * @return the number of QLabel int this widget
+     */
+    virtual int getNumberOfLabels() const;
 
+    /**
+     * @brief the number of prediction presented by this widget
+     */
     static const int NB_PREDICTION = 4;
     
 signals:

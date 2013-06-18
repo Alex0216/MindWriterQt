@@ -47,36 +47,7 @@ KeyboardWidget::KeyboardWidget(QWidget *parent) :
         }
 
         setLayout(grid);
-
-        // Setting the timer for the main loop
-        timer.setInterval(DELAY);
-        timer.start();
-        connect(&timer, SIGNAL(timeout()), this, SLOT(update()));
-        updateRow = 0;
-        updateColumn = 0;
     }
-
-}
-
-void KeyboardWidget::update()
-{
-    // Turn off the last label
-    labelOff(updateRow, updateColumn);
-
-    ++updateColumn;
-    if (updateColumn == KEYBOARD_WIDTH)
-    {
-        updateColumn = 0;
-        updateRow++;
-    }
-
-    // Reset counter if needed
-    if (updateRow == KEYBOARD_HEIGHT)
-        updateRow = 0;
-
-
-    labelOn(updateRow, updateColumn);
-
 
 }
 
@@ -181,4 +152,9 @@ void KeyboardWidget::setColorScheme(QColor letterOn, QColor labelOn, QColor lett
     {
         keys.at(i)->setPalette(labelInactifPalette);
     }
+}
+
+int KeyboardWidget::getNumberOfLabels() const
+{
+    return keys.size();
 }

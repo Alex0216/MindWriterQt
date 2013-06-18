@@ -7,6 +7,9 @@
 #include <QMenuBar>
 #include <QAction>
 #include <QLabel>
+#include <QPair>
+#include <QVector>
+
 
 #include "keyboardwidget.h"
 #include "predictionwidget.h"
@@ -27,10 +30,27 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 public:
     explicit MainWindow(QMainWindow *parent = 0);
+
+    /**
+     * @brief the delay between each flash
+     */
+    static const int DELAY = 300;
+
+    enum FlashMode {
+        OneByOne, /**< Flash one label after the other. */
+        LineByLine /**< Flash one row/column after the other. */
+    };
     
 signals:
     
 public slots:
+
+    /**
+     * @brief update the KeyboardWidget and PredictionWidget
+     * according to the present configuration. \n
+     * Called when timer_ reach DELAY
+     */
+    void updateFlash();
 
 private:
     void createActions();
@@ -46,6 +66,15 @@ private:
     QAction *qwertyAct;
     QAction *azertyAct;
     QAction *selectKeyboardAct;
+
+    QTimer timer_; ///< Timer use to control the label. Details.
+    FlashMode flashMode_;
+
+    int flashIndex_;
+    /**
+     * @brief QVector containing the coordinate of all the QLabels
+     */
+    QVector<QPair<int, int>> vLabelCoordinate;
 
 private slots:
     void selectKeyboardLayout();

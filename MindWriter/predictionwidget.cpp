@@ -106,3 +106,8 @@ void PredictionWidget::setColorScheme(QColor letterOn, QColor labelOn,
         predictions.at(i)->setPalette(labelInactifPalette);
 
 }
+
+int PredictionWidget::getNumberOfLabels() const
+{
+    return predictions.size();
+}

@@ -40,16 +40,19 @@ public:
     void setColorScheme(QColor letterOn, QColor labelOn, QColor letterOff,
                         QColor labelOff, QColor background);
 
+    /**
+     * @brief getNumberOfLabels
+     * @return the number of QLabels in the widget
+     */
+    int getNumberOfLabels() const;
 
     static const int KEYBOARD_WIDTH = 10;
     static const int KEYBOARD_HEIGHT = 5;
-    static const int DELAY = 300;
 
 signals:
 
     
 public slots:
-    void update();
     void layoutUpdate(QString layout);
 
 private:
@@ -57,10 +60,7 @@ private:
     QPalette labelInactifPalette;
     QPalette labelActifPalette;
     QPalette backgroundPalette;
-    QTimer timer;
     QMessageBox ErrorMessage;
-    int updateRow;
-    int updateColumn;
     QGridLayout *grid;
     
 };
