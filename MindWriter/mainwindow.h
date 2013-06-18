@@ -5,6 +5,8 @@
 #include <QTextEdit>
 #include <QStatusBar>
 #include <QMenuBar>
+#include <QAction>
+#include <QLabel>
 
 #include "keyboardwidget.h"
 #include "predictionwidget.h"
@@ -31,10 +33,24 @@ signals:
 public slots:
 
 private:
+    void createActions();
+
     KeyboardWidget *keyboardW;
     PredictionWidget *predictionW;
     QTextEdit *textEdit;
 
+    QMenu *fileMenu;
+    QMenu *editMenu;
+    QMenu *settingMenu;
+    QMenu *keyboardMenu;
+    QAction *qwertyAct;
+    QAction *azertyAct;
+    QAction *selectKeyboardAct;
+
+private slots:
+    void selectKeyboardLayout();
+    void selectQWERTYKeyboardLayout();
+    void selectAZERTYKeyboardLayout();
     
 };
 

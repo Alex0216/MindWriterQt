@@ -1,4 +1,5 @@
 #include "keyboardwidget.h"
+#include "keyboardselectionwidget.h"
 #include <string>
 #include <fstream>
 
@@ -8,7 +9,7 @@ KeyboardWidget::KeyboardWidget(QWidget *parent) :
     QWidget(parent), labelInactifPalette(), labelActifPalette()
 {
     keys = QVector<QLabel*>();
-    QGridLayout *grid = new QGridLayout;
+    grid = new QGridLayout;
 /*
     labelInactifPalette = new QPalette();
     labelActifPalette = new QPalette();
@@ -81,6 +82,31 @@ void KeyboardWidget::update()
 
     labelOn(updateRow, updateColumn);
 
+
+}
+
+void KeyboardWidget::layoutUpdate(QString layout)
+{
+
+    ifstream keyboardLayout;
+    keyboardLayout.open(layout.toStdString());
+    if(keyboardLayout.fail())
+    {
+        //If the layout isn't working
+        ErrorMessage.setWindowTitle("Error");
+        ErrorMessage.setIcon(QMessageBox::Critical);
+        ErrorMessage.setText("Can't load the keyboard layout!");
+        ErrorMessage.show();
+    }
+    else
+    {
+        for (int i = 0; i < KEYBOARD_WIDTH*KEYBOARD_HEIGHT; ++i )
+        {
+                string keyboardKey;
+                keyboardLayout >> keyboardKey;
+                keys[i]->setText(QString::fromStdString(keyboardKey));
+        }
+    }
 
 }
 

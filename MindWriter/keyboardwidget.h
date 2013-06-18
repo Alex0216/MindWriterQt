@@ -7,6 +7,7 @@
 #include <QPalette>
 #include <QTimer>
 #include <QMessageBox>
+#include <QString>
 
 
 
@@ -26,9 +27,11 @@ public:
     static const int DELAY = 300;
 
 signals:
+
     
 public slots:
     void update();
+    void layoutUpdate(QString layout);
 
 private:
     QVector<QLabel* > keys;
@@ -39,6 +42,7 @@ private:
     QMessageBox ErrorMessage;
     int updateRow;
     int updateColumn;
+    QGridLayout *grid;
     
 };
 

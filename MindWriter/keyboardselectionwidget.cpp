@@ -1,4 +1,5 @@
 #include "keyboardselectionwidget.h"
+#include "keyboardwidget.h"
 #include "mainwindow.h"
 
 using namespace std;
