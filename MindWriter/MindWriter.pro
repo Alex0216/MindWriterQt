@@ -15,11 +15,13 @@ TEMPLATE = app
 SOURCES += main.cpp\
         mainwindow.cpp \
     keyboardwidget.cpp \
-    predictionwidget.cpp
+    predictionwidget.cpp \
+    keyboardselectionwidget.cpp
 
 HEADERS  += mainwindow.h \
     keyboardwidget.h \
-    predictionwidget.h
+    predictionwidget.h \
+    keyboardselectionwidget.h
 
 FORMS    +=
 
