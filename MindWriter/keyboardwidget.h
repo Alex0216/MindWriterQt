@@ -17,27 +17,24 @@ class KeyboardWidget : public QWidget, public Flashable
     Q_OBJECT
 public:
     /*!
-     * \brief KeyboardWidget
-     * \param parent
-     *  Create a KeyboardWidget consisting of a 10*5 grid of
+     * \brief Create a KeyboardWidget consisting of a 10*5 grid of
      *  QLabel meant to look like a keyboard
      *  The Qwerty layout is loaded by default
+     * \param parent
      */
     explicit KeyboardWidget(QWidget *parent = 0);
 
     /*!
-     * \brief labelOn
+     * \brief Set the palette of the choosen QLabel to labelActifPalette
      * \param row
      * \param column
-     *  Set the palette of the choosen QLabel to labelActifPalette
      */
     virtual void labelOn(int row, int column);
 
     /*!
-     * \brief labelOff
+     * \brief Set the palette of the choosen QLabel to labelInactifPalette
      * \param row
      * \param column
-     *  Set the palette of the choosen QLabel to labelInactifPalette
      */
     virtual void labelOff(int row, int column);
     void setColorScheme(QColor letterOn, QColor labelOn, QColor letterOff,

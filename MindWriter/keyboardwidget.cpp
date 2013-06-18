@@ -10,11 +10,6 @@ KeyboardWidget::KeyboardWidget(QWidget *parent) :
 {
     keys = QVector<QLabel*>();
     grid = new QGridLayout;
-/*
-    labelInactifPalette = new QPalette();
-    labelActifPalette = new QPalette();
-    backgroundPalette = new QPalette();
-*/
 
     ifstream keyboardLayout;
     keyboardLayout.open("qwerty.txt");
