@@ -9,15 +9,37 @@
 #include <QMessageBox>
 #include <QString>
 
+#include "flashable.h"
 
 
-class KeyboardWidget : public QWidget
+class KeyboardWidget : public QWidget, public Flashable
 {
     Q_OBJECT
 public:
+    /*!
+     * \brief KeyboardWidget
+     * \param parent
+     *  Create a KeyboardWidget consisting of a 10*5 grid of
+     *  QLabel meant to look like a keyboard
+     *  The Qwerty layout is loaded by default
+     */
     explicit KeyboardWidget(QWidget *parent = 0);
-    void labelOn(int row, int column);
-    void labelOff(int row, int column);
+
+    /*!
+     * \brief labelOn
+     * \param row
+     * \param column
+     *  Set the palette of the choosen QLabel to labelActifPalette
+     */
+    virtual void labelOn(int row, int column);
+
+    /*!
+     * \brief labelOff
+     * \param row
+     * \param column
+     *  Set the palette of the choosen QLabel to labelInactifPalette
+     */
+    virtual void labelOff(int row, int column);
     void setColorScheme(QColor letterOn, QColor labelOn, QColor letterOff,
                         QColor labelOff, QColor background);
 

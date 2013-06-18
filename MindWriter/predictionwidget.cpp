@@ -29,6 +29,20 @@ PredictionWidget::PredictionWidget(QWidget *parent) :
 
 }
 
+void PredictionWidget::labelOn(int, int column)
+{
+   //row is always 0
+    if(column < 4)
+        predictions.at(column)->setPalette(labelActifPalette);
+}
+
+void PredictionWidget::labelOff(int, int column)
+{
+    //row is always 0
+     if(column < 4)
+         predictions.at(column)->setPalette(labelInactifPalette);
+}
+
 void PredictionWidget::setColorScheme(QColor letterOn, QColor labelOn,
                    QColor letterOff, QColor labelOff, QColor background)
 {
