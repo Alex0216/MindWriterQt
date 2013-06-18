@@ -6,6 +6,9 @@
 #include <QGridLayout>
 #include <QPalette>
 #include <QTimer>
+#include <QMessageBox>
+#include <QString>
+
 
 
 class KeyboardWidget : public QWidget
@@ -20,13 +23,15 @@ public:
 
 
     static const int KEYBOARD_WIDTH = 10;
-    static const int KEYBOARD_HEIGHT = 4;
+    static const int KEYBOARD_HEIGHT = 5;
     static const int DELAY = 300;
 
 signals:
+
     
 public slots:
     void update();
+    void layoutUpdate(QString layout);
 
 private:
     QVector<QLabel* > keys;
@@ -34,8 +39,10 @@ private:
     QPalette labelActifPalette;
     QPalette backgroundPalette;
     QTimer timer;
+    QMessageBox ErrorMessage;
     int updateRow;
     int updateColumn;
+    QGridLayout *grid;
     
 };
 

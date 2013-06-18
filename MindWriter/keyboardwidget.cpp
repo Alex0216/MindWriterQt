@@ -1,44 +1,65 @@
 #include "keyboardwidget.h"
+#include "keyboardselectionwidget.h"
+#include <string>
+#include <fstream>
+
+using namespace std;
 
 KeyboardWidget::KeyboardWidget(QWidget *parent) :
     QWidget(parent), labelInactifPalette(), labelActifPalette()
 {
     keys = QVector<QLabel*>();
-    QGridLayout *grid = new QGridLayout;
+    grid = new QGridLayout;
 /*
     labelInactifPalette = new QPalette();
     labelActifPalette = new QPalette();
     backgroundPalette = new QPalette();
 */
-    QFont f("Helvetica", 20);
-    for (int row = 0; row < KEYBOARD_HEIGHT; ++row )
+
+    ifstream keyboardLayout;
+    keyboardLayout.open("qwerty.txt");
+    if(keyboardLayout.fail())
     {
-        for(int column = 0; column < KEYBOARD_WIDTH; ++column)
-        {
-            QLabel *key = new QLabel("A");
-            key->setFont(f);
-            key->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
-            key->setMinimumWidth(90);
-            key->setMinimumHeight(90);
-            key->setScaledContents(true);
-            key->setFrameShape(QFrame::Box);
-            key->setLineWidth(3);
-            key->setAlignment(Qt::AlignCenter);
-            key->setPalette(labelInactifPalette);
-            key->setAutoFillBackground(true);
-            grid->addWidget(key, row, column);
-            keys.push_back(key);
-        }
+        //If the layout isn't working
+        ErrorMessage.setWindowTitle("Error");
+        ErrorMessage.setIcon(QMessageBox::Critical);
+        ErrorMessage.setText("Can't load the keyboard layout!");
+        ErrorMessage.show();
     }
+    else
+    {
+        QFont f("Helvetica", 20);
+        for (int row = 0; row < KEYBOARD_HEIGHT; ++row )
+        {
+            for(int column = 0; column < KEYBOARD_WIDTH; ++column)
+            {
+                string keyboardKey;
+                keyboardLayout >> keyboardKey;
+                QLabel *key = new QLabel(QString::fromStdString(keyboardKey));
+                key->setFont(f);
+                key->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
+                key->setMinimumWidth(90);
+                key->setMinimumHeight(90);
+                key->setScaledContents(true);
+                key->setFrameShape(QFrame::Box);
+                key->setLineWidth(3);
+                key->setAlignment(Qt::AlignCenter);
+                key->setPalette(labelInactifPalette);
+                key->setAutoFillBackground(true);
+                grid->addWidget(key, row, column);
+                keys.push_back(key);
+            }
+        }
 
-    setLayout(grid);
+        setLayout(grid);
 
-    // Setting the timer for the main loop
-    timer.setInterval(DELAY);
-    timer.start();
-    connect(&timer, SIGNAL(timeout()), this, SLOT(update()));
-    updateRow = 0;
-    updateColumn = 0;
+        // Setting the timer for the main loop
+        timer.setInterval(DELAY);
+        timer.start();
+        connect(&timer, SIGNAL(timeout()), this, SLOT(update()));
+        updateRow = 0;
+        updateColumn = 0;
+    }
 
 }
 
@@ -61,6 +82,31 @@ void KeyboardWidget::update()
 
     labelOn(updateRow, updateColumn);
 
+
+}
+
+void KeyboardWidget::layoutUpdate(QString layout)
+{
+
+    ifstream keyboardLayout;
+    keyboardLayout.open(layout.toStdString());
+    if(keyboardLayout.fail())
+    {
+        //If the layout isn't working
+        ErrorMessage.setWindowTitle("Error");
+        ErrorMessage.setIcon(QMessageBox::Critical);
+        ErrorMessage.setText("Can't load the keyboard layout!");
+        ErrorMessage.show();
+    }
+    else
+    {
+        for (int i = 0; i < KEYBOARD_WIDTH*KEYBOARD_HEIGHT; ++i )
+        {
+                string keyboardKey;
+                keyboardLayout >> keyboardKey;
+                keys[i]->setText(QString::fromStdString(keyboardKey));
+        }
+    }
 
 }
 
