@@ -9,6 +9,7 @@
 #include <QLabel>
 #include <QPair>
 #include <QVector>
+#include <QKeyEvent>
 
 
 #include "keyboardwidget.h"
@@ -57,6 +58,8 @@ public:
       * keyboard portion until the label is found
       */
     void binarySearch();
+
+    void keyPressEvent(QKeyEvent *event);
     
 signals:
     
@@ -85,7 +88,7 @@ private:
     QAction *selectKeyboardAct;
 
     QTimer timer_; ///< Timer use to control the label. Details.
-    QVector<FlashableInterface* > vFlashables_;
+   FlashableInterface* currentWidget_;
 
     FlashMode flashMode_;
 

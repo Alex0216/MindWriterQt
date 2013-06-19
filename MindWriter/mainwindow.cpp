@@ -28,6 +28,7 @@ MainWindow::MainWindow(QMainWindow *parent) :
                               defaultColorScheme::BACKGROUND);
 
     textEdit = new QTextEdit();
+    textEdit->setFocusPolicy(Qt::NoFocus);
 
     QVBoxLayout *mainLayout = new QVBoxLayout();
     mainLayout->addWidget(textEdit);
@@ -57,8 +58,7 @@ MainWindow::MainWindow(QMainWindow *parent) :
     timer_.start();
     connect(&timer_, SIGNAL(timeout()), this, SLOT(updateFlash()));
     flashIndex_ = 0;
-    vFlashables_.push_back(predictionW);
-    vFlashables_.push_back(keyboardW);
+    currentWidget_ = predictionW;
 
     binarySearchStep_ = 0;
     binarySearchSubStep_ = 0;
@@ -91,17 +91,21 @@ void MainWindow::updateFlash()
 
 void MainWindow::oneByOneSearch()
 {
-    if(vFlashables_[flashIndex_]->oneByOneSearch())
+    if(currentWidget_->oneByOneSearch())
     {
-        //vFlashables_[flashIndex_]->allOff();
         flashIndex_++;
+        currentWidget_ = keyboardW;
     }
-    if( flashIndex_ == vFlashables_.size())
+    if( flashIndex_ == 2)
+    {
         flashIndex_ = 0;
+        currentWidget_ = predictionW;
+    }
 }
 
 void MainWindow::binarySearch()
 {
+    predictionW->binarySearch();
 
 }
 
@@ -137,5 +141,24 @@ void MainWindow::createActions()
     //selectKeyboardAct->setShortcuts(QKeySequence::New);
     azertyAct->setStatusTip(tr("Choose the AZERTY keyboard layout"));
     connect(azertyAct, SIGNAL(triggered()), this, SLOT(selectAZERTYKeyboardLayout()));
+}
+
+void MainWindow::keyPressEvent(QKeyEvent *event)
+{
+    if( event->key() == Qt::Key_Space)
+    {
+        switch(flashMode_)
+        {
+         case OneByOne:
+                if(!currentWidget_->getActiveLabelsContent().isEmpty())
+                {
+                    QString letter = currentWidget_->getActiveLabelsContent().first();
+                    textEdit->setText(textEdit->toPlainText() + letter);
+                }
+                break;
+        case BinarySearch:
+            break;
+        }
+    }
 }
 
