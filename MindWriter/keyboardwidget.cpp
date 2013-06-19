@@ -2,6 +2,7 @@
 #include "keyboardselectionwidget.h"
 #include <string>
 #include <fstream>
+#include <iostream>
 
 using namespace std;
 
@@ -194,16 +195,118 @@ bool KeyboardWidget::oneByOneSearch()
 
 bool KeyboardWidget::binarySearch()
 {
+    if(vSelectedHalve_.isEmpty())
+    {
+        vSelectedHalve_ = keys;
+        selectedHalveWidth = KEYBOARD_WIDTH;
+        selectedHalveHeight = KEYBOARD_HEIGHT;
+    }
+
+    if(vFirstHalve_.isEmpty() && vSecondHalve_.isEmpty())
+    {
+        //Divide the grid according to the longuest side
+        if(selectedHalveWidth > selectedHalveHeight)
+        {
+            for(int i = 0; i < vSelectedHalve_.size(); ++i)
+            {
+                int index = i % selectedHalveWidth;
+                if( index < selectedHalveWidth/2)
+                    vFirstHalve_.push_back(vSelectedHalve_.at(i));
+                else
+                    vSecondHalve_.push_back(vSelectedHalve_.at(i));
+            }
+            //height stays the same
+            firstHalveHeight = selectedHalveHeight;
+            secondHalveHeight = selectedHalveHeight;
+
+            firstHalveWidth = selectedHalveWidth/2;
+            secondHalveWidth = selectedHalveWidth - firstHalveWidth;
+        }
+        else
+        {
+            int separation = vSelectedHalve_.size()/2;
+
+            //To have complete row only
+            separation = separation - separation%selectedHalveWidth;
+            for(int i = 0; i < vSelectedHalve_.size(); ++i)
+            {
+                if( i < separation)
+                    vFirstHalve_.push_back(vSelectedHalve_.at(i));
+                else
+                    vSecondHalve_.push_back(vSelectedHalve_.at(i));
+            }
+
+            //width stays the same
+            firstHalveWidth = selectedHalveWidth;
+            secondHalveWidth = selectedHalveWidth;
+
+            firstHalveHeight = selectedHalveHeight/2;
+            secondHalveHeight = selectedHalveHeight = firstHalveHeight;
+
+        }
+    }
+    static int alternate = 1;
+    //alternate between the two vector
+    if(alternate > 0)
+    {
+        currentHalve = 1;
+        for_each(vFirstHalve_.begin(), vFirstHalve_.end(), [this] (QLabel* l){
+                     l->setPalette(labelActifPalette);
+                 });
+        for_each(vSecondHalve_.begin(), vSecondHalve_.end(), [this] (QLabel* l){
+            l->setPalette(labelInactifPalette);
+        });
+    }
+    else
+    {
+        currentHalve = 2;
+        for_each(vFirstHalve_.begin(), vFirstHalve_.end(), [this] (QLabel* l){
+                     l->setPalette(labelInactifPalette);
+                 });
+        for_each(vSecondHalve_.begin(), vSecondHalve_.end(), [this] (QLabel* l){
+            l->setPalette(labelActifPalette);
+        });
+    }
+    alternate *= -1;
+
     return false;
 }
 
-QVector<string> KeyboardWidget::getActiveLabelsContent()
+QVector<QString> KeyboardWidget::getActiveLabelsContent()
 {
-    QVector<string> contents;
+    QVector<QString> contents;
     for_each(activeKeys.begin(),activeKeys.end(), [&contents] (QLabel* l){
-        contents.push_back(l->text().toStdString());
+        contents.push_back(l->text());
     } );
     return contents;
+}
+
+bool KeyboardWidget::selectHalve()
+{
+    if( currentHalve == 1)
+    {
+        vSelectedHalve_ = vFirstHalve_;
+        selectedHalveHeight = firstHalveHeight;
+        selectedHalveWidth = firstHalveWidth;
+    }
+    else
+    {
+        vSelectedHalve_ = vSecondHalve_;
+        selectedHalveHeight = secondHalveHeight;
+        selectedHalveWidth = secondHalveWidth;
+    }
+
+    vFirstHalve_.clear();
+    vSecondHalve_.clear();
+    activeKeys = vSelectedHalve_;
+    activeKeys.squeeze();
+
+    if( vSelectedHalve_.size() == 1)
+    {
+        vSelectedHalve_.clear();
+        return true;
+    }
+    return false;
 }
 
 void KeyboardWidget::allOff()

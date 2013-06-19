@@ -49,7 +49,7 @@ MainWindow::MainWindow(QMainWindow *parent) :
     setCentralWidget(new QWidget);
     centralWidget()->setLayout(mainLayout);
 
-    flashMode_ = OneByOne;
+    flashMode_ = BinarySearch;
 
     /**
       * Setting up the timer
@@ -87,6 +87,7 @@ void MainWindow::updateFlash()
         binarySearch();
         break;
     }
+    debouncer_ = true;
 }
 
 void MainWindow::oneByOneSearch()
@@ -105,7 +106,7 @@ void MainWindow::oneByOneSearch()
 
 void MainWindow::binarySearch()
 {
-    predictionW->binarySearch();
+    keyboardW->binarySearch();
 
 }
 
@@ -145,20 +146,28 @@ void MainWindow::createActions()
 
 void MainWindow::keyPressEvent(QKeyEvent *event)
 {
-    if( event->key() == Qt::Key_Space)
+    if( event->key() == Qt::Key_Space && debouncer_)
     {
+        timer_.stop();
+        debouncer_ = false;
         switch(flashMode_)
         {
          case OneByOne:
-                if(!currentWidget_->getActiveLabelsContent().isEmpty())
-                {
-                    QString letter = currentWidget_->getActiveLabelsContent().first();
-                    textEdit->setText(textEdit->toPlainText() + letter);
-                }
-                break;
+            if(!currentWidget_->getActiveLabelsContent().isEmpty())
+            {
+                QString letter = currentWidget_->getActiveLabelsContent().first();
+                textEdit->setText(textEdit->toPlainText() + letter);
+            }
+            break;
         case BinarySearch:
+            if(keyboardW->selectHalve())
+            {
+                 QString letter = keyboardW->getActiveLabelsContent().first();
+                textEdit->setText(textEdit->toPlainText() + letter);
+            }
             break;
         }
+        timer_.start();
     }
 }
 

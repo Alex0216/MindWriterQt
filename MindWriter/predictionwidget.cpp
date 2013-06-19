@@ -1,5 +1,7 @@
 #include "predictionwidget.h"
 
+#include <iostream>
+
 using namespace std;
 
 PredictionWidget::PredictionWidget(QWidget *parent) :
@@ -148,17 +150,83 @@ bool PredictionWidget::oneByOneSearch()
 
 bool PredictionWidget::binarySearch()
 {
+    //If empty: state 1
+    if (vSelectedHalve_.isEmpty())
+    {
+        vSelectedHalve_ = predictions;
+    }
+
+    if (vFirstHalve_.isEmpty() && vSecondHalve_.isEmpty())
+    {
+        //Turn the right side on
+        //index%NB_PREDICTION correspond to the column
+        // so the right side is when that number < NB_PREDICTION/2
+
+        int half = vSelectedHalve_.size() / 2;
+        for(int i = 0; i < vSelectedHalve_.size(); ++i)
+        {
+            int index = i % vSelectedHalve_.size();
+            if( index < half)
+                vFirstHalve_.push_back(vSelectedHalve_.at(index));
+            else
+                vSecondHalve_.push_back(vSelectedHalve_.at(index));
+        }
+    }
+    static int alternate = 1;
+    //alternate between the two vector
+    if(alternate > 0)
+    {
+        currentHalve = 1;
+        for_each(vFirstHalve_.begin(), vFirstHalve_.end(), [this] (QLabel* l){
+                     l->setPalette(labelActifPalette);
+                 });
+        for_each(vSecondHalve_.begin(), vSecondHalve_.end(), [this] (QLabel* l){
+            l->setPalette(labelInactifPalette);
+        });
+    }
+    else
+    {
+        currentHalve = 2;
+        for_each(vFirstHalve_.begin(), vFirstHalve_.end(), [this] (QLabel* l){
+                     l->setPalette(labelInactifPalette);
+                 });
+        for_each(vSecondHalve_.begin(), vSecondHalve_.end(), [this] (QLabel* l){
+            l->setPalette(labelActifPalette);
+        });
+    }
+    alternate *= -1;
+
+
     return false;
 }
 
-QVector<string> PredictionWidget::getActiveLabelsContent()
+QVector<QString> PredictionWidget::getActiveLabelsContent()
 {
-    QVector<string> contents;
+    QVector<QString> contents;
     for_each(activePredictions.begin(),activePredictions.end(), [&contents] (QLabel* l){
-        contents.push_back(l->text().toStdString());
+        contents.push_back(l->text());
     } );
     return contents;
 
+}
+
+bool PredictionWidget::selectHalve()
+{
+    if( currentHalve == 1)
+        vSelectedHalve_ = vFirstHalve_;
+    else
+        vSelectedHalve_ = vSecondHalve_;
+
+    vFirstHalve_.clear();
+    vSecondHalve_.clear();
+    activePredictions = vSelectedHalve_;
+
+    if( vSelectedHalve_.size() == 1)
+    {
+        vSelectedHalve_.clear();
+        return true;
+    }
+    return false;
 }
 
 void PredictionWidget::allOff()

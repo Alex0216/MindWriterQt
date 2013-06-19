@@ -88,7 +88,9 @@ private:
     QAction *selectKeyboardAct;
 
     QTimer timer_; ///< Timer use to control the label. Details.
-   FlashableInterface* currentWidget_;
+    FlashableInterface* currentWidget_;
+
+    bool debouncer_;
 
     FlashMode flashMode_;
 

@@ -11,7 +11,8 @@ public:
 
     virtual bool oneByOneSearch() = 0;
     virtual bool binarySearch() = 0;
-    virtual QVector<std::string> getActiveLabelsContent() = 0;
+    virtual QVector<QString> getActiveLabelsContent() = 0;
+    virtual bool selectHalve() = 0;
 
     virtual void allOff() = 0;
     virtual void allOn() = 0;
