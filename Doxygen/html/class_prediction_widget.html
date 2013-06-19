@@ -94,7 +94,7 @@ $(document).ready(function(){initNavTree('class_prediction_widget.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerator</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -129,11 +129,15 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:afeb8cd3f247792064a7a09a8b8458b13"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afeb8cd3f247792064a7a09a8b8458b13"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setColorScheme</b> (QColor letterOn, QColor <a class="el" href="class_prediction_widget.html#adfd7a001533172e8181baae1293f66dd">labelOn</a>, QColor letterOff, QColor <a class="el" href="class_prediction_widget.html#ade86254c37ebd0adb73a7356fd29800c">labelOff</a>, QColor background)</td></tr>
 <tr class="separator:afeb8cd3f247792064a7a09a8b8458b13"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0910905fae78ac2512858b828a3e5a1"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_prediction_widget.html#ae0910905fae78ac2512858b828a3e5a1">getNumberOfLabels</a> () const </td></tr>
+<tr class="memdesc:ae0910905fae78ac2512858b828a3e5a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">getNumberOfLabel  <a href="#ae0910905fae78ac2512858b828a3e5a1">More...</a><br/></td></tr>
+<tr class="separator:ae0910905fae78ac2512858b828a3e5a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
 <tr class="memitem:a30fe4fd225d0566a64b5c784d7d8ed52"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a30fe4fd225d0566a64b5c784d7d8ed52"></a>
-static const int&#160;</td><td class="memItemRight" valign="bottom"><b>NB_PREDICTION</b> = 4</td></tr>
+static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_prediction_widget.html#a30fe4fd225d0566a64b5c784d7d8ed52">NB_PREDICTION</a> = 4</td></tr>
+<tr class="memdesc:a30fe4fd225d0566a64b5c784d7d8ed52"><td class="mdescLeft">&#160;</td><td class="mdescRight">the number of prediction presented by this widget <br/></td></tr>
 <tr class="separator:a30fe4fd225d0566a64b5c784d7d8ed52"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
@@ -170,6 +174,34 @@ static const int&#160;</td><td class="memItemRight" valign="bottom"><b>NB_PREDIC
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="ae0910905fae78ac2512858b828a3e5a1"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int PredictionWidget::getNumberOfLabels </td>
+          <td>(</td>
+          <td class="paramname">)</td><td></td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>getNumberOfLabel </p>
+<dl class="section return"><dt>Returns</dt><dd>the number of QLabel int this widget </dd></dl>
+
+<p>Implements <a class="el" href="class_flashable.html">Flashable</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="ade86254c37ebd0adb73a7356fd29800c"></a>
 <div class="memitem">
 <div class="memproto">
@@ -270,7 +302,7 @@ static const int&#160;</td><td class="memItemRight" valign="bottom"><b>NB_PREDIC
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_prediction_widget.html">PredictionWidget</a></li>
-    <li class="footer">Generated on Tue Jun 18 2013 15:13:45 for MindWriter by
+    <li class="footer">Generated on Wed Jun 19 2013 09:22:25 for MindWriter by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.4 </li>
   </ul>

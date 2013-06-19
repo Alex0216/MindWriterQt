@@ -1,3 +1,5 @@
+#include <iostream>
+
 #include "mainwindow.h"
 #include "keyboardselectionwidget.h"
 
@@ -55,6 +57,11 @@ MainWindow::MainWindow(QMainWindow *parent) :
     timer_.start();
     connect(&timer_, SIGNAL(timeout()), this, SLOT(updateFlash()));
     flashIndex_ = 0;
+    vFlashables_.push_back(predictionW);
+    vFlashables_.push_back(keyboardW);
+
+    binarySearchStep_ = 0;
+    binarySearchSubStep_ = 0;
 
     //Fill vLabelCoordinate
     //For the PredictionWidget
@@ -71,36 +78,31 @@ MainWindow::MainWindow(QMainWindow *parent) :
 void MainWindow::updateFlash()
 {
 
-    if(flashMode_ == OneByOne)
+    switch(flashMode_)
     {
-       // Turn off the last label
-       int row = vLabelCoordinate.at(flashIndex_).first;
-       int column = vLabelCoordinate.at(flashIndex_).second;
-
-       if (flashIndex_ < predictionW->getNumberOfLabels())
-       {
-           predictionW->labelOff(row, column);
-       }
-       else
-           keyboardW->labelOff(row, column);
-       //Turn on the nextLabel
-       ++flashIndex_;
-
-       //Bound check
-       if( flashIndex_ >= vLabelCoordinate.size())
-           flashIndex_ = 0;
-
-       row = vLabelCoordinate.at(flashIndex_).first;
-       column = vLabelCoordinate.at(flashIndex_).second;
-
-       if (flashIndex_ < predictionW->getNumberOfLabels())
-       {
-           predictionW->labelOn(row, column);
-       }
-       else
-           keyboardW->labelOn(row, column);
-
+    case OneByOne:
+        oneByOneSearch();
+        break;
+    case BinarySearch:
+        binarySearch();
+        break;
     }
+}
+
+void MainWindow::oneByOneSearch()
+{
+    if(vFlashables_[flashIndex_]->oneByOneSearch())
+    {
+        //vFlashables_[flashIndex_]->allOff();
+        flashIndex_++;
+    }
+    if( flashIndex_ == vFlashables_.size())
+        flashIndex_ = 0;
+}
+
+void MainWindow::binarySearch()
+{
+
 }
 
 void MainWindow::selectKeyboardLayout()

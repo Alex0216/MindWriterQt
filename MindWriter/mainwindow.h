@@ -38,8 +38,25 @@ public:
 
     enum FlashMode {
         OneByOne, /**< Flash one label after the other. */
-        LineByLine /**< Flash one row/column after the other. */
+        BinarySearch /**< Flash one row/column after the other. */
     };
+
+    /**
+     * @brief called by the updateFlash slot. \n
+     *  This mode flashes the labels of PredictionWidget and
+     *  KeyboardWidget one after the others according to the order
+     *  specified. By default it goes in ordger.
+     */
+    void oneByOneSearch();
+
+    /**
+      * @brief called by the updateFlash slot. \n
+      * This mode implement a binary search like algorythm
+      * by flashing half the KeyboardWidget. On it know in wich
+      * halve the label it repeat the procedure with the smaller
+      * keyboard portion until the label is found
+      */
+    void binarySearch();
     
 signals:
     
@@ -68,7 +85,12 @@ private:
     QAction *selectKeyboardAct;
 
     QTimer timer_; ///< Timer use to control the label. Details.
+    QVector<FlashableInterface* > vFlashables_;
+
     FlashMode flashMode_;
+
+    int binarySearchStep_;
+    int binarySearchSubStep_;
 
     int flashIndex_;
     /**

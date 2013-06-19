@@ -79,14 +79,18 @@ void KeyboardWidget::layoutUpdate(QString layout)
 void KeyboardWidget::labelOn(int row, int column)
 {
     int index = column + row*KEYBOARD_WIDTH;
-    keys.at(index)->setPalette(labelActifPalette);
+    QLabel* label = keys.at(index);
+    label->setPalette(labelActifPalette);
+    activeKeys.push_back(label);
 
 }
 
 void KeyboardWidget::labelOff(int row, int column)
 {
     int index = column + row*KEYBOARD_WIDTH;
-    keys.at(index)->setPalette(labelInactifPalette);
+    QLabel* label = keys.at(index);
+    label->setPalette(labelInactifPalette);
+    activeKeys.remove(activeKeys.indexOf(label));
 
 }
 
@@ -158,3 +162,70 @@ int KeyboardWidget::getNumberOfLabels() const
 {
     return keys.size();
 }
+
+bool KeyboardWidget::oneByOneSearch()
+{
+    static int index = 0;
+
+    QLabel* lastLabel;
+    if(index == 0)
+        lastLabel = keys.last();
+    else
+        lastLabel = keys.at(index-1);
+
+    lastLabel->setPalette(labelInactifPalette);
+    if(activeKeys.contains(lastLabel))
+        activeKeys.remove(activeKeys.indexOf(lastLabel));
+
+    if( index != keys.size())
+    {
+        activeKeys.push_back(keys.at(index));
+        keys.at(index++)->setPalette(labelActifPalette);
+    }
+    else
+    {
+        index = 0;
+        return true;
+    }
+
+    return false;
+
+}
+
+bool KeyboardWidget::binarySearch()
+{
+    return false;
+}
+
+QVector<string> KeyboardWidget::getActiveLabelsContent()
+{
+    QVector<string> contents;
+    for_each(activeKeys.begin(),activeKeys.end(), [&contents] (QLabel* l){
+        contents.push_back(l->text().toStdString());
+    } );
+    return contents;
+}
+
+void KeyboardWidget::allOff()
+{
+    for (int i = 0; i < keys.size(); ++i)
+    {
+        keys.at(i)->setPalette(labelInactifPalette);
+    }
+    activeKeys.clear();
+}
+
+void KeyboardWidget::allOn()
+{
+    for (int i = 0; i < keys.size(); ++i)
+    {
+        QLabel* label = keys.at(i);
+        if(!activeKeys.contains(label))
+        {
+            label->setPalette(labelActifPalette);
+            activeKeys.push_back(label);
+        }
+    }
+
+}
+

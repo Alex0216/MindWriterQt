@@ -94,7 +94,7 @@ $(document).ready(function(){initNavTree('class_main_window.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerator</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -105,6 +105,7 @@ $(document).ready(function(){initNavTree('class_main_window.html','');});
 
 <div class="header">
   <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-slots">Public Slots</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-attribs">Static Public Attributes</a> &#124;
@@ -116,6 +117,13 @@ $(document).ready(function(){initNavTree('class_main_window.html','');});
 
 <p>Inherits QMainWindow.</p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:a44abd7eed6ee23341cb378e6dbf60652"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#a44abd7eed6ee23341cb378e6dbf60652">FlashMode</a> { <a class="el" href="class_main_window.html#a44abd7eed6ee23341cb378e6dbf60652aff8e22f74aaba6a40ec3c140d15b4a56">OneByOne</a>, 
+<a class="el" href="class_main_window.html#a44abd7eed6ee23341cb378e6dbf60652a445b710505a2c84dff02b98a2f1ba11a">BinarySearch</a>
+ }</td></tr>
+<tr class="separator:a44abd7eed6ee23341cb378e6dbf60652"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-slots"></a>
 Public Slots</h2></td></tr>
 <tr class="memitem:a2c60fa94bf903a2fd73fd5ab9c743d61"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2c60fa94bf903a2fd73fd5ab9c743d61"></a>
@@ -126,8 +134,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ab7d94977fe4f15c9850f3e4928e02672"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab7d94977fe4f15c9850f3e4928e02672"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>MainWindow</b> (QMainWindow *parent=0)</td></tr>
+<tr class="memitem:ab7d94977fe4f15c9850f3e4928e02672"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#ab7d94977fe4f15c9850f3e4928e02672">MainWindow</a> (QMainWindow *parent=0)</td></tr>
 <tr class="separator:ab7d94977fe4f15c9850f3e4928e02672"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
@@ -137,6 +144,53 @@ static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el
 <tr class="memdesc:a19ab095b0f58e8746bfa538ef43b23b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">the delay between each flash <br/></td></tr>
 <tr class="separator:a19ab095b0f58e8746bfa538ef43b23b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Enumeration Documentation</h2>
+<a class="anchor" id="a44abd7eed6ee23341cb378e6dbf60652"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="class_main_window.html#a44abd7eed6ee23341cb378e6dbf60652">MainWindow::FlashMode</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="a44abd7eed6ee23341cb378e6dbf60652aff8e22f74aaba6a40ec3c140d15b4a56"></a>OneByOne</em>&nbsp;</td><td class="fielddoc">
+<p>Flash one label after the other. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a44abd7eed6ee23341cb378e6dbf60652a445b710505a2c84dff02b98a2f1ba11a"></a>BinarySearch</em>&nbsp;</td><td class="fielddoc">
+<p>Flash one row/column after the other. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="ab7d94977fe4f15c9850f3e4928e02672"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">MainWindow::MainWindow </td>
+          <td>(</td>
+          <td class="paramtype">QMainWindow *&#160;</td>
+          <td class="paramname"><em>parent</em> = <code>0</code>)</td><td></td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Setting up the timer</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>C:/Users/Alexandre/Programmation/MindWriterQt/MindWriter/<a class="el" href="mainwindow_8h_source.html">mainwindow.h</a></li>
 <li>C:/Users/Alexandre/Programmation/MindWriterQt/MindWriter/mainwindow.cpp</li>
@@ -147,7 +201,7 @@ static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_main_window.html">MainWindow</a></li>
-    <li class="footer">Generated on Tue Jun 18 2013 15:13:45 for MindWriter by
+    <li class="footer">Generated on Wed Jun 19 2013 09:22:25 for MindWriter by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.4 </li>
   </ul>

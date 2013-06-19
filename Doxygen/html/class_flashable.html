@@ -94,7 +94,7 @@ $(document).ready(function(){initNavTree('class_flashable.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerator</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -122,6 +122,9 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>labelOn</b> (
 <tr class="memitem:a2ed7a541f1114ebf1b9cb0573398a417"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2ed7a541f1114ebf1b9cb0573398a417"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>labelOff</b> (int row, int column)=0</td></tr>
 <tr class="separator:a2ed7a541f1114ebf1b9cb0573398a417"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4413b1fb84951212da89bcb04a133e02"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4413b1fb84951212da89bcb04a133e02"></a>
+virtual int&#160;</td><td class="memItemRight" valign="bottom"><b>getNumberOfLabels</b> () const =0</td></tr>
+<tr class="separator:a4413b1fb84951212da89bcb04a133e02"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>C:/Users/Alexandre/Programmation/MindWriterQt/MindWriter/<a class="el" href="flashable_8h_source.html">flashable.h</a></li>
@@ -132,7 +135,7 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>labelOff</b> 
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_flashable.html">Flashable</a></li>
-    <li class="footer">Generated on Tue Jun 18 2013 15:13:45 for MindWriter by
+    <li class="footer">Generated on Wed Jun 19 2013 09:22:25 for MindWriter by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.4 </li>
   </ul>

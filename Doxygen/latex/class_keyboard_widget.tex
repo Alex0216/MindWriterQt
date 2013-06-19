@@ -8,9 +8,6 @@ Inherits Q\-Widget, and \hyperlink{class_flashable}{Flashable}.
 \subsection*{Public Slots}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{class_keyboard_widget_a02510ce65636dca9c99604e55e605229}{void {\bfseries update} ()}\label{class_keyboard_widget_a02510ce65636dca9c99604e55e605229}
-
-\item 
 \hypertarget{class_keyboard_widget_a11dbb17db310484aea61e2f7ad289f2a}{void {\bfseries layout\-Update} (Q\-String layout)}\label{class_keyboard_widget_a11dbb17db310484aea61e2f7ad289f2a}
 
 \end{DoxyCompactItemize}
@@ -25,7 +22,9 @@ virtual void \hyperlink{class_keyboard_widget_a20598fb8ae364d5fce74f4299a2d3146}
 \begin{DoxyCompactList}\small\item\em Set the palette of the choosen Q\-Label to label\-Inactif\-Palette. \end{DoxyCompactList}\item 
 \hypertarget{class_keyboard_widget_a06dd2114d263d985e9bb12222d53eea2}{void {\bfseries set\-Color\-Scheme} (Q\-Color letter\-On, Q\-Color \hyperlink{class_keyboard_widget_aec29dc2f1059798655b028c3c677112a}{label\-On}, Q\-Color letter\-Off, Q\-Color \hyperlink{class_keyboard_widget_a20598fb8ae364d5fce74f4299a2d3146}{label\-Off}, Q\-Color background)}\label{class_keyboard_widget_a06dd2114d263d985e9bb12222d53eea2}
 
-\end{DoxyCompactItemize}
+\item 
+int \hyperlink{class_keyboard_widget_a35b569560ea90337c46ceacfe00d5da6}{get\-Number\-Of\-Labels} () const 
+\begin{DoxyCompactList}\small\item\em get\-Number\-Of\-Labels \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Static Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -33,9 +32,6 @@ virtual void \hyperlink{class_keyboard_widget_a20598fb8ae364d5fce74f4299a2d3146}
 
 \item 
 \hypertarget{class_keyboard_widget_afc4f3fa688ec77d83120696f1a022725}{static const int {\bfseries K\-E\-Y\-B\-O\-A\-R\-D\-\_\-\-H\-E\-I\-G\-H\-T} = 5}\label{class_keyboard_widget_afc4f3fa688ec77d83120696f1a022725}
-
-\item 
-\hypertarget{class_keyboard_widget_a080896424b62229bf74aefc96b253237}{static const int {\bfseries D\-E\-L\-A\-Y} = 300}\label{class_keyboard_widget_a080896424b62229bf74aefc96b253237}
 
 \end{DoxyCompactItemize}
 
@@ -60,6 +56,24 @@ Create a \hyperlink{class_keyboard_widget}{Keyboard\-Widget} consisting of a 10$
 
 
 \subsection{Member Function Documentation}
+\hypertarget{class_keyboard_widget_a35b569560ea90337c46ceacfe00d5da6}{\index{Keyboard\-Widget@{Keyboard\-Widget}!get\-Number\-Of\-Labels@{get\-Number\-Of\-Labels}}
+\index{get\-Number\-Of\-Labels@{get\-Number\-Of\-Labels}!KeyboardWidget@{Keyboard\-Widget}}
+\subsubsection[{get\-Number\-Of\-Labels}]{\setlength{\rightskip}{0pt plus 5cm}int Keyboard\-Widget\-::get\-Number\-Of\-Labels (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_keyboard_widget_a35b569560ea90337c46ceacfe00d5da6}
+
+
+get\-Number\-Of\-Labels 
+
+\begin{DoxyReturn}{Returns}
+the number of Q\-Labels in the widget 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_flashable}{Flashable}.
+
 \hypertarget{class_keyboard_widget_a20598fb8ae364d5fce74f4299a2d3146}{\index{Keyboard\-Widget@{Keyboard\-Widget}!label\-Off@{label\-Off}}
 \index{label\-Off@{label\-Off}!KeyboardWidget@{Keyboard\-Widget}}
 \subsubsection[{label\-Off}]{\setlength{\rightskip}{0pt plus 5cm}void Keyboard\-Widget\-::label\-Off (

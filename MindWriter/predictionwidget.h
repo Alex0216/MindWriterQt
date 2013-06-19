@@ -7,7 +7,7 @@
 
 #include "flashable.h"
 
-class PredictionWidget : public QWidget, public Flashable
+class PredictionWidget : public QWidget, public FlashableInterface
 {
     Q_OBJECT
 public:
@@ -44,6 +44,38 @@ public:
     virtual int getNumberOfLabels() const;
 
     /**
+     * @brief Flashes the label one by one
+     * @return true when all the labels has been flashed once
+     * @return false otherwise
+     */
+    bool oneByOneSearch();
+
+    /**
+     * @brief Flashes the label in a binary search like pattern
+     * @return true when the search has reach the end
+     * @return false otherwise
+     */
+    bool binarySearch();
+
+    /**
+     * @brief getActiveLabelsContent
+     * @return QVector containing the content of all the
+     * active labels
+     */
+    QVector<std::string> getActiveLabelsContent();
+
+    /**
+     * @brief turn all label off
+     */
+    void allOff();
+
+    /**
+     * @brief turn all label on
+     */
+    void allOn();
+
+
+    /**
      * @brief the number of prediction presented by this widget
      */
     static const int NB_PREDICTION = 4;
@@ -55,6 +87,7 @@ public slots:
 private:
     QHBoxLayout *predictionLayout;
     QVector<QLabel*> predictions;
+    QVector<QLabel*> activePredictions;
 
     QPalette labelInactifPalette;
     QPalette labelActifPalette;

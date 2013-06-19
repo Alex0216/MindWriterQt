@@ -1,5 +1,7 @@
 #include "predictionwidget.h"
 
+using namespace std;
+
 PredictionWidget::PredictionWidget(QWidget *parent) :
     QWidget(parent)
 {
@@ -110,4 +112,74 @@ void PredictionWidget::setColorScheme(QColor letterOn, QColor labelOn,
 int PredictionWidget::getNumberOfLabels() const
 {
     return predictions.size();
+}
+
+bool PredictionWidget::oneByOneSearch()
+{
+    static int index = 0;
+    QLabel* lastLabel;
+    if (index == 0)
+    {
+       lastLabel = predictions.last();
+    }
+    else
+    {
+        lastLabel = predictions.at(index-1);
+    }
+
+    lastLabel->setPalette(labelInactifPalette);
+    if (activePredictions.contains(lastLabel))
+        activePredictions.remove(activePredictions.indexOf(lastLabel));
+    if( index != predictions.size())
+    {
+        activePredictions.push_back(predictions.at(index));
+        predictions.at(index++)->setPalette(labelActifPalette);
+        return false;
+    }
+    else
+    {
+        index = 0;
+        return true;
+    }
+
+    return false;
+
+}
+
+bool PredictionWidget::binarySearch()
+{
+    return false;
+}
+
+QVector<string> PredictionWidget::getActiveLabelsContent()
+{
+    QVector<string> contents;
+    for_each(activePredictions.begin(),activePredictions.end(), [&contents] (QLabel* l){
+        contents.push_back(l->text().toStdString());
+    } );
+    return contents;
+
+}
+
+void PredictionWidget::allOff()
+{
+    for (int i = 0; i < predictions.size(); ++i)
+    {
+        predictions.at(i)->setPalette(labelInactifPalette);
+    }
+    activePredictions.clear();
+}
+
+void PredictionWidget::allOn()
+{
+    for (int i = 0; i < predictions.size(); ++i)
+    {
+        QLabel* label = predictions.at(i);
+        if(!activePredictions.contains(label))
+        {
+            label->setPalette(labelActifPalette);
+            activePredictions.push_back(label);
+        }
+    }
+
 }

@@ -12,7 +12,7 @@
 #include "flashable.h"
 
 
-class KeyboardWidget : public QWidget, public Flashable
+class KeyboardWidget : public QWidget, public FlashableInterface
 {
     Q_OBJECT
 public:
@@ -46,6 +46,37 @@ public:
      */
     int getNumberOfLabels() const;
 
+    /**
+     * @brief Flashes the label one by one
+     * @return true when all the labels has been flashed once
+     * @return false otherwise
+     */
+    bool oneByOneSearch();
+
+    /**
+     * @brief Flashes the label in a binary search like pattern
+     * @return true when the search has reach the end
+     * @return false otherwise
+     */
+    bool binarySearch();
+
+    /**
+     * @brief getActiveLabelsContent
+     * @return QVector containing the content of all the
+     * active labels
+     */
+    QVector<std::string> getActiveLabelsContent();
+
+    /**
+     * @brief turn all label off
+     */
+    void allOff();
+
+    /**
+     * @brief turn all label on
+     */
+    void allOn();
+
     static const int KEYBOARD_WIDTH = 10;
     static const int KEYBOARD_HEIGHT = 5;
 
@@ -57,6 +88,7 @@ public slots:
 
 private:
     QVector<QLabel* > keys;
+    QVector<QLabel*> activeKeys;
     QPalette labelInactifPalette;
     QPalette labelActifPalette;
     QPalette backgroundPalette;

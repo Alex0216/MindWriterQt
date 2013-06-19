@@ -94,7 +94,7 @@ $(document).ready(function(){initNavTree('class_keyboard_widget.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerator</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -118,9 +118,6 @@ $(document).ready(function(){initNavTree('class_keyboard_widget.html','');});
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-slots"></a>
 Public Slots</h2></td></tr>
-<tr class="memitem:a02510ce65636dca9c99604e55e605229"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a02510ce65636dca9c99604e55e605229"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> ()</td></tr>
-<tr class="separator:a02510ce65636dca9c99604e55e605229"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a11dbb17db310484aea61e2f7ad289f2a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a11dbb17db310484aea61e2f7ad289f2a"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>layoutUpdate</b> (QString layout)</td></tr>
 <tr class="separator:a11dbb17db310484aea61e2f7ad289f2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -139,6 +136,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a06dd2114d263d985e9bb12222d53eea2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a06dd2114d263d985e9bb12222d53eea2"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setColorScheme</b> (QColor letterOn, QColor <a class="el" href="class_keyboard_widget.html#aec29dc2f1059798655b028c3c677112a">labelOn</a>, QColor letterOff, QColor <a class="el" href="class_keyboard_widget.html#a20598fb8ae364d5fce74f4299a2d3146">labelOff</a>, QColor background)</td></tr>
 <tr class="separator:a06dd2114d263d985e9bb12222d53eea2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a35b569560ea90337c46ceacfe00d5da6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_keyboard_widget.html#a35b569560ea90337c46ceacfe00d5da6">getNumberOfLabels</a> () const </td></tr>
+<tr class="memdesc:a35b569560ea90337c46ceacfe00d5da6"><td class="mdescLeft">&#160;</td><td class="mdescRight">getNumberOfLabels  <a href="#a35b569560ea90337c46ceacfe00d5da6">More...</a><br/></td></tr>
+<tr class="separator:a35b569560ea90337c46ceacfe00d5da6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
@@ -148,9 +148,6 @@ static const int&#160;</td><td class="memItemRight" valign="bottom"><b>KEYBOARD_
 <tr class="memitem:afc4f3fa688ec77d83120696f1a022725"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afc4f3fa688ec77d83120696f1a022725"></a>
 static const int&#160;</td><td class="memItemRight" valign="bottom"><b>KEYBOARD_HEIGHT</b> = 5</td></tr>
 <tr class="separator:afc4f3fa688ec77d83120696f1a022725"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a080896424b62229bf74aefc96b253237"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a080896424b62229bf74aefc96b253237"></a>
-static const int&#160;</td><td class="memItemRight" valign="bottom"><b>DELAY</b> = 300</td></tr>
-<tr class="separator:a080896424b62229bf74aefc96b253237"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="ac14f6e0d625237b1e5a34938081fd333"></a>
@@ -186,6 +183,34 @@ static const int&#160;</td><td class="memItemRight" valign="bottom"><b>DELAY</b>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a35b569560ea90337c46ceacfe00d5da6"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int KeyboardWidget::getNumberOfLabels </td>
+          <td>(</td>
+          <td class="paramname">)</td><td></td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>getNumberOfLabels </p>
+<dl class="section return"><dt>Returns</dt><dd>the number of QLabels in the widget </dd></dl>
+
+<p>Implements <a class="el" href="class_flashable.html">Flashable</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="a20598fb8ae364d5fce74f4299a2d3146"></a>
 <div class="memitem">
 <div class="memproto">
@@ -286,7 +311,7 @@ static const int&#160;</td><td class="memItemRight" valign="bottom"><b>DELAY</b>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_keyboard_widget.html">KeyboardWidget</a></li>
-    <li class="footer">Generated on Tue Jun 18 2013 15:13:45 for MindWriter by
+    <li class="footer">Generated on Wed Jun 19 2013 09:22:25 for MindWriter by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.4 </li>
   </ul>
