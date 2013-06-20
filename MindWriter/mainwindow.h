@@ -83,30 +83,26 @@ private:
     QMenu *editMenu;
     QMenu *settingMenu;
     QMenu *keyboardMenu;
+    QMenu *flashMenu_;
     QAction *qwertyAct;
     QAction *azertyAct;
-    QAction *selectKeyboardAct;
+    QAction *oneByOneAct;
+    QAction *binarySearchAct;
+    QAction *selectFlashAct;
 
     QTimer timer_; ///< Timer use to control the label. Details.
     FlashableInterface* currentWidget_;
 
     bool debouncer_;
-
     FlashMode flashMode_;
-
-    int binarySearchStep_;
-    int binarySearchSubStep_;
-
     int flashIndex_;
-    /**
-     * @brief QVector containing the coordinate of all the QLabels
-     */
-    QVector<QPair<int, int>> vLabelCoordinate;
+
 
 private slots:
-    void selectKeyboardLayout();
     void selectQWERTYKeyboardLayout();
     void selectAZERTYKeyboardLayout();
+    void selectOneByOneFlashOption();
+    void selectBinarySearchFlashOption();
     
 };
 
