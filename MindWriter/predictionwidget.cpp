@@ -1,6 +1,6 @@
 /**
  * \file predictionwidget.cpp \version 1.1
- * @author Alexandre St-Onge
+ * \author Alexandre St-Onge
  *
  * \brief Implementation of the PredictionWidget class
  */
