@@ -1,0 +1,9 @@
+/*!
+ * \class *SEULEMENT POUR .h"
+ * \file %FILENAME% \version 1.0
+ * \author: Alexandre St-Onge, Julien Aymong
+ *
+ * \brief brief description
+ *
+ * Long description
+ */
