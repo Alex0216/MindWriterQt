@@ -91,7 +91,7 @@ private:
     QAction *selectFlashAct;
 
     QTimer timer_; ///< Timer use to control the label. Details.
-    FlashableInterface* currentWidget_;
+    Flashable* currentWidget_;
 
     bool debouncer_;
     FlashMode flashMode_;

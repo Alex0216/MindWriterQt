@@ -12,7 +12,7 @@ MainWindow::MainWindow(QMainWindow *parent) :
 */
     createActions();
 
-    predictionW = new PredictionWidget();
+    predictionW = new PredictionWidget(4, 1);
     predictionW->setColorScheme(defaultColorScheme::LETTER_ON,
                               defaultColorScheme::LABEL_ON,
                               defaultColorScheme::LETTER_OFF,
@@ -20,7 +20,7 @@ MainWindow::MainWindow(QMainWindow *parent) :
                               defaultColorScheme::BACKGROUND);
 
 
-    keyboardW = new KeyboardWidget();
+    keyboardW = new KeyboardWidget(10,5);
     keyboardW->setColorScheme(defaultColorScheme::LETTER_ON,
                               defaultColorScheme::LABEL_ON,
                               defaultColorScheme::LETTER_OFF,
