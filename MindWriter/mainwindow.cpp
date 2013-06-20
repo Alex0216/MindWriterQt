@@ -28,6 +28,7 @@ MainWindow::MainWindow(QMainWindow *parent) :
                               defaultColorScheme::BACKGROUND);
 
     textEdit = new QTextEdit();
+    textEdit->setFocusPolicy(Qt::NoFocus);
 
     QVBoxLayout *mainLayout = new QVBoxLayout();
     mainLayout->addWidget(textEdit);
@@ -48,7 +49,7 @@ MainWindow::MainWindow(QMainWindow *parent) :
     setCentralWidget(new QWidget);
     centralWidget()->setLayout(mainLayout);
 
-    flashMode_ = OneByOne;
+    flashMode_ = BinarySearch;
 
     /**
       * Setting up the timer
@@ -57,8 +58,7 @@ MainWindow::MainWindow(QMainWindow *parent) :
     timer_.start();
     connect(&timer_, SIGNAL(timeout()), this, SLOT(updateFlash()));
     flashIndex_ = 0;
-    vFlashables_.push_back(predictionW);
-    vFlashables_.push_back(keyboardW);
+    currentWidget_ = predictionW;
 
     binarySearchStep_ = 0;
     binarySearchSubStep_ = 0;
@@ -87,21 +87,26 @@ void MainWindow::updateFlash()
         binarySearch();
         break;
     }
+    debouncer_ = true;
 }
 
 void MainWindow::oneByOneSearch()
 {
-    if(vFlashables_[flashIndex_]->oneByOneSearch())
+    if(currentWidget_->oneByOneSearch())
     {
-        //vFlashables_[flashIndex_]->allOff();
         flashIndex_++;
+        currentWidget_ = keyboardW;
     }
-    if( flashIndex_ == vFlashables_.size())
+    if( flashIndex_ == 2)
+    {
         flashIndex_ = 0;
+        currentWidget_ = predictionW;
+    }
 }
 
 void MainWindow::binarySearch()
 {
+    keyboardW->binarySearch();
 
 }
 
@@ -137,5 +142,32 @@ void MainWindow::createActions()
     //selectKeyboardAct->setShortcuts(QKeySequence::New);
     azertyAct->setStatusTip(tr("Choose the AZERTY keyboard layout"));
     connect(azertyAct, SIGNAL(triggered()), this, SLOT(selectAZERTYKeyboardLayout()));
+}
+
+void MainWindow::keyPressEvent(QKeyEvent *event)
+{
+    if( event->key() == Qt::Key_Space && debouncer_)
+    {
+        timer_.stop();
+        debouncer_ = false;
+        switch(flashMode_)
+        {
+         case OneByOne:
+            if(!currentWidget_->getActiveLabelsContent().isEmpty())
+            {
+                QString letter = currentWidget_->getActiveLabelsContent().first();
+                textEdit->setText(textEdit->toPlainText() + letter);
+            }
+            break;
+        case BinarySearch:
+            if(keyboardW->selectHalve())
+            {
+                 QString letter = keyboardW->getActiveLabelsContent().first();
+                textEdit->setText(textEdit->toPlainText() + letter);
+            }
+            break;
+        }
+        timer_.start();
+    }
 }
 
