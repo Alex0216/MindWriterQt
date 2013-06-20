@@ -1,5 +1,5 @@
 /**
- * \file mainwindow.cpp v.1.1
+ * \file mainwindow.cpp \version 1.1
  * \author Alexandre St-Onge, Julien Aymong
  *
  *
