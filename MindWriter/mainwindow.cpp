@@ -1,15 +1,17 @@
-#include <iostream>
+/**
+ * \file mainwindow.cpp v.1.1
+ * \author Alexandre St-Onge, Julien Aymong
+ *
+ *
+ * \brief Implementation of the  MainWindow class
+ */
 
 #include "mainwindow.h"
-#include "keyboardselectionwidget.h"
+
 
 MainWindow::MainWindow(QMainWindow *parent) :
     QMainWindow(parent)
 {
-/*
-    KeyboardSelectionWidget *test = new KeyboardSelectionWidget();
-    test->show();
-*/
     createActions();
 
     predictionW = new PredictionWidget(4, 1);

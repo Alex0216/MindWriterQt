@@ -1,11 +1,16 @@
-#include "predictionwidget.h"
+/**
+ * \file predictionwidget.cpp \version 1.1
+ * @author Alexandre St-Onge
+ *
+ * \brief Implementation of the PredictionWidget class
+ */
 
-#include <iostream>
+#include "predictionwidget.h"
 
 using namespace std;
 
 PredictionWidget::PredictionWidget(int width, int height, QWidget *parent) :
-    Flashable(width, height, parent)
+    FlashableWidget(width, height, parent)
 {
     for (int i = 0; i< vLabels_.size(); ++i)
     {

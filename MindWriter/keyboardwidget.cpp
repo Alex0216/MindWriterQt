@@ -1,24 +1,30 @@
+/**
+ * \file keyboardwidget.cpp \version 1.1
+ * \author Alexandre St-Onge, Julien Aymong
+ *
+ * \brief Implementation of the KeyboardWidget class
+ *
+ * © TheBCIProject
+ *
+ */
 #include "keyboardwidget.h"
-#include "keyboardselectionwidget.h"
-#include <string>
-#include <fstream>
-#include <iostream>
 
 using namespace std;
 
 KeyboardWidget::KeyboardWidget(int width, int height, QWidget *parent):
-    Flashable(width, height, parent)
+    FlashableWidget(width, height, parent)
 {
 
     ifstream keyboardLayout;
     keyboardLayout.open("qwerty.txt");
     if(keyboardLayout.fail())
     {
+        QMessageBox errorMessage;
         //If the layout isn't working
-        ErrorMessage.setWindowTitle("Error");
-        ErrorMessage.setIcon(QMessageBox::Critical);
-        ErrorMessage.setText("Can't load the keyboard layout!");
-        ErrorMessage.show();
+        errorMessage.setWindowTitle("Error");
+        errorMessage.setIcon(QMessageBox::Critical);
+        errorMessage.setText("Can't load the keyboard layout!");
+        errorMessage.show();
     }
     else
     {
@@ -43,11 +49,12 @@ void KeyboardWidget::layoutUpdate(QString layout)
     keyboardLayout.open(layout.toStdString());
     if(keyboardLayout.fail())
     {
+        QMessageBox errorMessage;
         //If the layout isn't working
-        ErrorMessage.setWindowTitle("Error");
-        ErrorMessage.setIcon(QMessageBox::Critical);
-        ErrorMessage.setText("Can't load the keyboard layout!");
-        ErrorMessage.show();
+        errorMessage.setWindowTitle("Error");
+        errorMessage.setIcon(QMessageBox::Critical);
+        errorMessage.setText("Can't load the keyboard layout!");
+        errorMessage.show();
     }
     else
     {
