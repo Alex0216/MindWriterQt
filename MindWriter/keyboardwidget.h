@@ -65,7 +65,14 @@ public:
      * @return QVector containing the content of all the
      * active labels
      */
-    QVector<std::string> getActiveLabelsContent();
+    QVector<QString> getActiveLabelsContent();
+
+    /**
+     * @brief selectHalve
+     * @return true if the selected halve contains 1 label
+     * @return false otherwise
+     */
+    bool selectHalve();
 
     /**
      * @brief turn all label off
@@ -94,6 +101,17 @@ private:
     QPalette backgroundPalette;
     QMessageBox ErrorMessage;
     QGridLayout *grid;
+
+    QVector<QLabel*> vFirstHalve_;
+    QVector<QLabel*> vSecondHalve_;
+    QVector<QLabel*> vSelectedHalve_;
+    int currentHalve;
+    int selectedHalveWidth;
+    int selectedHalveHeight;
+    int firstHalveWidth;
+    int firstHalveHeight;
+    int secondHalveWidth;
+    int secondHalveHeight;
     
 };
 
