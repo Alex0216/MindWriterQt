@@ -1,3 +1,20 @@
+/**
+ * \file mainwindow.h \version 1.0
+ * \class MainWindow
+ * \author: Alexandre St-Onge, Julien Aymong
+ *
+ * \brief A window containing two flashable widget,
+ * one KeyboardWidget and one PredictionWidget, and
+ * a QTextEdit to print the choosen letter/word.
+ *
+ * The three widgets are in a QVBoxLayout with the
+ * QTextEdit on top, followed by the PredictionWidget
+ * and the KeyboardWidget at the bottom
+ *
+ * © TheBCIProject
+ *
+ */
+
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
@@ -14,15 +31,35 @@
 
 #include "keyboardwidget.h"
 #include "predictionwidget.h"
+#include "keyboardselectionwidget.h"
 
+/**
+ * \brief The default color scheme for the program
+ */
 namespace defaultColorScheme
 {
+    /**
+     * @brief letter when not active: Gray
+     */
     static const QColor LETTER_OFF = QColor(255,255,255,130);
+    /**
+     * @brief label's background when inactive: Black
+     */
     static const QColor LABEL_OFF = QColor(40,40,40,200);
 
+    /**
+     * @brief letter's color when active: Black
+     */
     static const QColor LETTER_ON = QColor(0,0,0,255);
+
+    /**
+     * @brief label's background when active: White
+     */
     static const QColor LABEL_ON = QColor(255,255,255,200);
 
+    /**
+     * @brief Bbackground color: Black
+     */
     static const QColor BACKGROUND = QColor(50,50,50,200);
 }
 
@@ -83,30 +120,26 @@ private:
     QMenu *editMenu;
     QMenu *settingMenu;
     QMenu *keyboardMenu;
+    QMenu *flashMenu_;
     QAction *qwertyAct;
     QAction *azertyAct;
-    QAction *selectKeyboardAct;
+    QAction *oneByOneAct;
+    QAction *binarySearchAct;
+    QAction *selectFlashAct;
 
     QTimer timer_; ///< Timer use to control the label. Details.
-    FlashableInterface* currentWidget_;
+    FlashableWidget* currentWidget_;
 
     bool debouncer_;
-
     FlashMode flashMode_;
-
-    int binarySearchStep_;
-    int binarySearchSubStep_;
-
     int flashIndex_;
-    /**
-     * @brief QVector containing the coordinate of all the QLabels
-     */
-    QVector<QPair<int, int>> vLabelCoordinate;
+
 
 private slots:
-    void selectKeyboardLayout();
     void selectQWERTYKeyboardLayout();
     void selectAZERTYKeyboardLayout();
+    void selectOneByOneFlashOption();
+    void selectBinarySearchFlashOption();
     
 };
 

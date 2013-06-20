@@ -1,118 +1,51 @@
+/**
+ * \file keyboardwidget.h \version 1.1
+ * \class KeyboardWidget
+ * \author Alexandre St-Onge, Julien Aymong
+ *
+ * \brief A Widget meant to represent a keyboard
+ * Each label has a minimum size of 90x90
+ *
+ * © TheBCIProject
+ */
 #ifndef KEYBOARDWIDGET_H
 #define KEYBOARDWIDGET_H
 
-#include <QWidget>
+#include <string>
+#include <fstream>
+
 #include <QLabel>
-#include <QGridLayout>
-#include <QPalette>
-#include <QTimer>
 #include <QMessageBox>
 #include <QString>
 
-#include "flashable.h"
+#include "flashablewidget.h"
+#include "keyboardselectionwidget.h"
 
-
-class KeyboardWidget : public QWidget, public FlashableInterface
+class KeyboardWidget :public FlashableWidget
 {
-    Q_OBJECT
 public:
     /*!
-     * \brief Create a KeyboardWidget consisting of a 10*5 grid of
+     * \brief Create a KeyboardWidget consisting of a grid of
      *  QLabel meant to look like a keyboard
      *  The Qwerty layout is loaded by default
+     * \param width the number of column for this widget
+     * \param height the number of row for this widget
      * \param parent
      */
-    explicit KeyboardWidget(QWidget *parent = 0);
-
-    /*!
-     * \brief Set the palette of the choosen QLabel to labelActifPalette
-     * \param row
-     * \param column
-     */
-    virtual void labelOn(int row, int column);
-
-    /*!
-     * \brief Set the palette of the choosen QLabel to labelInactifPalette
-     * \param row
-     * \param column
-     */
-    virtual void labelOff(int row, int column);
-    void setColorScheme(QColor letterOn, QColor labelOn, QColor letterOff,
-                        QColor labelOff, QColor background);
-
-    /**
-     * @brief getNumberOfLabels
-     * @return the number of QLabels in the widget
-     */
-    int getNumberOfLabels() const;
-
-    /**
-     * @brief Flashes the label one by one
-     * @return true when all the labels has been flashed once
-     * @return false otherwise
-     */
-    bool oneByOneSearch();
-
-    /**
-     * @brief Flashes the label in a binary search like pattern
-     * @return true when the search has reach the end
-     * @return false otherwise
-     */
-    bool binarySearch();
-
-    /**
-     * @brief getActiveLabelsContent
-     * @return QVector containing the content of all the
-     * active labels
-     */
-    QVector<QString> getActiveLabelsContent();
-
-    /**
-     * @brief selectHalve
-     * @return true if the selected halve contains 1 label
-     * @return false otherwise
-     */
-    bool selectHalve();
-
-    /**
-     * @brief turn all label off
-     */
-    void allOff();
-
-    /**
-     * @brief turn all label on
-     */
-    void allOn();
-
-    static const int KEYBOARD_WIDTH = 10;
-    static const int KEYBOARD_HEIGHT = 5;
+    KeyboardWidget(int width, int height, QWidget *parent = 0);
 
 signals:
 
     
 public slots:
+    /**
+     * @brief Slot called to update the layout of the KeyboardWidget
+     * @param layout
+     */
     void layoutUpdate(QString layout);
 
 private:
-    QVector<QLabel* > keys;
-    QVector<QLabel*> activeKeys;
-    QPalette labelInactifPalette;
-    QPalette labelActifPalette;
-    QPalette backgroundPalette;
-    QMessageBox ErrorMessage;
-    QGridLayout *grid;
 
-    QVector<QLabel*> vFirstHalve_;
-    QVector<QLabel*> vSecondHalve_;
-    QVector<QLabel*> vSelectedHalve_;
-    int currentHalve;
-    int selectedHalveWidth;
-    int selectedHalveHeight;
-    int firstHalveWidth;
-    int firstHalveHeight;
-    int secondHalveWidth;
-    int secondHalveHeight;
-    
 };
 
 #endif // KEYBOARDWIDGET_H
