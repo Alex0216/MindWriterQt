@@ -16,7 +16,7 @@ class KeyboardWidget :public Flashable
 {
 public:
     /*!
-     * \brief Create a KeyboardWidget consisting of a 10*5 grid of
+     * \brief Create a KeyboardWidget consisting of a grid of
      *  QLabel meant to look like a keyboard
      *  The Qwerty layout is loaded by default
      * \param parent

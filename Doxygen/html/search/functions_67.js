@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['getnumberoflabels',['getNumberOfLabels',['../class_keyboard_widget.html#a35b569560ea90337c46ceacfe00d5da6',1,'KeyboardWidget::getNumberOfLabels()'],['../class_prediction_widget.html#ae0910905fae78ac2512858b828a3e5a1',1,'PredictionWidget::getNumberOfLabels()']]]
+  ['getactivelabelscontent',['getActiveLabelsContent',['../class_flashable.html#a82a7c53ba367243f15d1037667e41042',1,'Flashable']]],
+  ['getnumberoflabels',['getNumberOfLabels',['../class_flashable.html#a05949a2d49501a1c990b63f8b15fb31b',1,'Flashable']]]
 ];

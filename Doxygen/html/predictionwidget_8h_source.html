@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.4"/>
-<title>MindWriter: C:/Users/Alexandre/Programmation/MindWriterQt/MindWriter/predictionwidget.h Source File</title>
+<title>MindWriter: C:/Users/Alexandre/Programmation/MindWriterAlex0216/MindWriterQt/MindWriter/predictionwidget.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -114,44 +114,26 @@ $(document).ready(function(){initNavTree('predictionwidget_8h_source.html','');}
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;flashable.h&quot;</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
-<div class="line"><a name="l00010"></a><span class="lineno"><a class="code" href="class_prediction_widget.html">   10</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_prediction_widget.html">PredictionWidget</a> : <span class="keyword">public</span> QWidget, <span class="keyword">public</span> <a class="code" href="class_flashable.html">Flashable</a></div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="code" href="class_prediction_widget.html">   10</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_prediction_widget.html">PredictionWidget</a> :<span class="keyword">public</span> <a class="code" href="class_flashable.html">Flashable</a></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;{</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    Q_OBJECT</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="class_prediction_widget.html#aca8be6dfb321e65e094768ae5bd98eea" title="Create a PredictionWidget consisting of 1 line of 4 Qlabel. ">PredictionWidget</a>(QWidget *parent = 0);</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_prediction_widget.html#adfd7a001533172e8181baae1293f66dd" title="change the palette of the QLabel to labelActifPalette ">labelOn</a>(<span class="keywordtype">int</span> row, <span class="keywordtype">int</span> column);</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_prediction_widget.html#ade86254c37ebd0adb73a7356fd29800c" title="change the palette of the QLabel to labelInactifPalette ">labelOff</a>(<span class="keywordtype">int</span> row, <span class="keywordtype">int</span> column);</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordtype">void</span> setColorScheme(QColor letterOn, QColor labelOn, QColor letterOff,</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                        QColor labelOff, QColor background);</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">int</span> <a class="code" href="class_prediction_widget.html#ae0910905fae78ac2512858b828a3e5a1" title="getNumberOfLabel ">getNumberOfLabels</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
-<div class="line"><a name="l00049"></a><span class="lineno"><a class="code" href="class_prediction_widget.html#a30fe4fd225d0566a64b5c784d7d8ed52">   49</a></span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="class_prediction_widget.html#a30fe4fd225d0566a64b5c784d7d8ed52" title="the number of prediction presented by this widget ">NB_PREDICTION</a> = 4;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    </div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;signals:</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    </div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="keyword">public</span> slots:</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    QHBoxLayout *predictionLayout;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    QVector&lt;QLabel*&gt; predictions;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    QPalette labelInactifPalette;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    QPalette labelActifPalette;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    QPalette backgroundPalette;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    </div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;};</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="preprocessor">#endif // PREDICTIONWIDGET_H</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="class_prediction_widget.html#a2120eb3ad42e87ba1556c4cb6b05d5b4" title="Create a PredictionWidget consisting of 1 line of 4 Qlabel. ">PredictionWidget</a>(<span class="keywordtype">int</span> row, <span class="keywordtype">int</span> column, QWidget *parent = 0);</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;signals:</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">public</span> slots:</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;};</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#endif // PREDICTIONWIDGET_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_7d602ac04d1ebd6f5bbe59c9b3aed387.html">MindWriter</a></li><li class="navelem"><b>predictionwidget.h</b></li>
-    <li class="footer">Generated on Wed Jun 19 2013 09:22:25 for MindWriter by
+    <li class="footer">Generated on Thu Jun 20 2013 10:57:55 for MindWriter by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.4 </li>
   </ul>

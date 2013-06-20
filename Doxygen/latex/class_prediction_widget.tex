@@ -3,38 +3,26 @@
 }
 
 
-Inherits Q\-Widget, and \hyperlink{class_flashable}{Flashable}.
+Inherits \hyperlink{class_flashable}{Flashable}.
 
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{class_prediction_widget_aca8be6dfb321e65e094768ae5bd98eea}{Prediction\-Widget} (Q\-Widget $\ast$parent=0)
-\begin{DoxyCompactList}\small\item\em Create a \hyperlink{class_prediction_widget}{Prediction\-Widget} consisting of 1 line of 4 Qlabel. \end{DoxyCompactList}\item 
-virtual void \hyperlink{class_prediction_widget_adfd7a001533172e8181baae1293f66dd}{label\-On} (int row, int column)
-\begin{DoxyCompactList}\small\item\em change the palette of the Q\-Label to label\-Actif\-Palette \end{DoxyCompactList}\item 
-virtual void \hyperlink{class_prediction_widget_ade86254c37ebd0adb73a7356fd29800c}{label\-Off} (int row, int column)
-\begin{DoxyCompactList}\small\item\em change the palette of the Q\-Label to label\-Inactif\-Palette \end{DoxyCompactList}\item 
-\hypertarget{class_prediction_widget_afeb8cd3f247792064a7a09a8b8458b13}{void {\bfseries set\-Color\-Scheme} (Q\-Color letter\-On, Q\-Color \hyperlink{class_prediction_widget_adfd7a001533172e8181baae1293f66dd}{label\-On}, Q\-Color letter\-Off, Q\-Color \hyperlink{class_prediction_widget_ade86254c37ebd0adb73a7356fd29800c}{label\-Off}, Q\-Color background)}\label{class_prediction_widget_afeb8cd3f247792064a7a09a8b8458b13}
-
-\item 
-virtual int \hyperlink{class_prediction_widget_ae0910905fae78ac2512858b828a3e5a1}{get\-Number\-Of\-Labels} () const 
-\begin{DoxyCompactList}\small\item\em get\-Number\-Of\-Label \end{DoxyCompactList}\end{DoxyCompactItemize}
-\subsection*{Static Public Attributes}
-\begin{DoxyCompactItemize}
-\item 
-\hypertarget{class_prediction_widget_a30fe4fd225d0566a64b5c784d7d8ed52}{static const int \hyperlink{class_prediction_widget_a30fe4fd225d0566a64b5c784d7d8ed52}{N\-B\-\_\-\-P\-R\-E\-D\-I\-C\-T\-I\-O\-N} = 4}\label{class_prediction_widget_a30fe4fd225d0566a64b5c784d7d8ed52}
-
-\begin{DoxyCompactList}\small\item\em the number of prediction presented by this widget \end{DoxyCompactList}\end{DoxyCompactItemize}
+\hyperlink{class_prediction_widget_a2120eb3ad42e87ba1556c4cb6b05d5b4}{Prediction\-Widget} (int row, int column, Q\-Widget $\ast$parent=0)
+\begin{DoxyCompactList}\small\item\em Create a \hyperlink{class_prediction_widget}{Prediction\-Widget} consisting of 1 line of 4 Qlabel. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
 
 
 \subsection{Constructor \& Destructor Documentation}
-\hypertarget{class_prediction_widget_aca8be6dfb321e65e094768ae5bd98eea}{\index{Prediction\-Widget@{Prediction\-Widget}!Prediction\-Widget@{Prediction\-Widget}}
+\hypertarget{class_prediction_widget_a2120eb3ad42e87ba1556c4cb6b05d5b4}{\index{Prediction\-Widget@{Prediction\-Widget}!Prediction\-Widget@{Prediction\-Widget}}
 \index{Prediction\-Widget@{Prediction\-Widget}!PredictionWidget@{Prediction\-Widget}}
 \subsubsection[{Prediction\-Widget}]{\setlength{\rightskip}{0pt plus 5cm}Prediction\-Widget\-::\-Prediction\-Widget (
 \begin{DoxyParamCaption}
+\item[{int}]{row, }
+\item[{int}]{column, }
 \item[{Q\-Widget $\ast$}]{parent = {\ttfamily 0}}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [explicit]}}}\label{class_prediction_widget_aca8be6dfb321e65e094768ae5bd98eea}
+)\hspace{0.3cm}{\ttfamily [explicit]}}}\label{class_prediction_widget_a2120eb3ad42e87ba1556c4cb6b05d5b4}
 
 
 Create a \hyperlink{class_prediction_widget}{Prediction\-Widget} consisting of 1 line of 4 Qlabel. 
@@ -46,74 +34,7 @@ Create a \hyperlink{class_prediction_widget}{Prediction\-Widget} consisting of 1
 \end{DoxyParams}
 
 
-\subsection{Member Function Documentation}
-\hypertarget{class_prediction_widget_ae0910905fae78ac2512858b828a3e5a1}{\index{Prediction\-Widget@{Prediction\-Widget}!get\-Number\-Of\-Labels@{get\-Number\-Of\-Labels}}
-\index{get\-Number\-Of\-Labels@{get\-Number\-Of\-Labels}!PredictionWidget@{Prediction\-Widget}}
-\subsubsection[{get\-Number\-Of\-Labels}]{\setlength{\rightskip}{0pt plus 5cm}int Prediction\-Widget\-::get\-Number\-Of\-Labels (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_prediction_widget_ae0910905fae78ac2512858b828a3e5a1}
-
-
-get\-Number\-Of\-Label 
-
-\begin{DoxyReturn}{Returns}
-the number of Q\-Label int this widget 
-\end{DoxyReturn}
-
-
-Implements \hyperlink{class_flashable}{Flashable}.
-
-\hypertarget{class_prediction_widget_ade86254c37ebd0adb73a7356fd29800c}{\index{Prediction\-Widget@{Prediction\-Widget}!label\-Off@{label\-Off}}
-\index{label\-Off@{label\-Off}!PredictionWidget@{Prediction\-Widget}}
-\subsubsection[{label\-Off}]{\setlength{\rightskip}{0pt plus 5cm}void Prediction\-Widget\-::label\-Off (
-\begin{DoxyParamCaption}
-\item[{int}]{row, }
-\item[{int}]{column}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_prediction_widget_ade86254c37ebd0adb73a7356fd29800c}
-
-
-change the palette of the Q\-Label to label\-Inactif\-Palette 
-
-
-\begin{DoxyParams}{Parameters}
-{\em row,\-:} & not used \\
-\hline
-{\em column} & \\
-\hline
-\end{DoxyParams}
-
-
-Implements \hyperlink{class_flashable}{Flashable}.
-
-\hypertarget{class_prediction_widget_adfd7a001533172e8181baae1293f66dd}{\index{Prediction\-Widget@{Prediction\-Widget}!label\-On@{label\-On}}
-\index{label\-On@{label\-On}!PredictionWidget@{Prediction\-Widget}}
-\subsubsection[{label\-On}]{\setlength{\rightskip}{0pt plus 5cm}void Prediction\-Widget\-::label\-On (
-\begin{DoxyParamCaption}
-\item[{int}]{row, }
-\item[{int}]{column}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_prediction_widget_adfd7a001533172e8181baae1293f66dd}
-
-
-change the palette of the Q\-Label to label\-Actif\-Palette 
-
-
-\begin{DoxyParams}{Parameters}
-{\em row,\-:} & not used \\
-\hline
-{\em column} & \\
-\hline
-\end{DoxyParams}
-
-
-Implements \hyperlink{class_flashable}{Flashable}.
-
-
-
 The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
 \item 
-C\-:/\-Users/\-Alexandre/\-Programmation/\-Mind\-Writer\-Qt/\-Mind\-Writer/predictionwidget.\-h\item 
-C\-:/\-Users/\-Alexandre/\-Programmation/\-Mind\-Writer\-Qt/\-Mind\-Writer/predictionwidget.\-cpp\end{DoxyCompactItemize}
+C\-:/\-Users/\-Alexandre/\-Programmation/\-Mind\-Writer\-Alex0216/\-Mind\-Writer\-Qt/\-Mind\-Writer/predictionwidget.\-h\item 
+C\-:/\-Users/\-Alexandre/\-Programmation/\-Mind\-Writer\-Alex0216/\-Mind\-Writer\-Qt/\-Mind\-Writer/predictionwidget.\-cpp\end{DoxyCompactItemize}

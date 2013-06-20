@@ -75,6 +75,9 @@ public:
     void allOn();
 
 protected:
+    /**
+     * QVector containing all the QLabels of the widget
+     */
     QVector<QLabel* > vLabels_;
 
 private:

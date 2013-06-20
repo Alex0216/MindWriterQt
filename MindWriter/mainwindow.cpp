@@ -127,7 +127,6 @@ void MainWindow::selectBinarySearchFlashOption()
 {
     if(flashMode_ != BinarySearch)
     {
-
         flashMode_ = BinarySearch;
         predictionW->allOff();
         keyboardW->allOff();

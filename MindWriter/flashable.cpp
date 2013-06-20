@@ -2,7 +2,9 @@
 
 Flashable::Flashable(int width, int height, QWidget *parent):
     QWidget(parent), width_(width), height_(height), vLabels_(), vActiveLabels_(),
-    inactiveLabelPalette(), activeLabelPalette(), backgroundPalette()
+    inactiveLabelPalette(), activeLabelPalette(), backgroundPalette(),
+    currentHalve(0), selectedHalveHeight(0), selectedHalveWidth(0),
+    firstHalveWidth(0), firstHalveHeight(0), secondHalveHeight(0), secondHalveWidth(0)
 {
     grid = new QGridLayout;
 

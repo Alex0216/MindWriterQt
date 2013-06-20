@@ -107,14 +107,13 @@ $(document).ready(function(){initNavTree('class_keyboard_widget.html','');});
   <div class="summary">
 <a href="#pub-slots">Public Slots</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="class_keyboard_widget-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">KeyboardWidget Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Inherits QWidget, and <a class="el" href="class_flashable.html">Flashable</a>.</p>
+<p>Inherits <a class="el" href="class_flashable.html">Flashable</a>.</p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-slots"></a>
 Public Slots</h2></td></tr>
@@ -124,33 +123,54 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>layoutUpdate</b> (QSt
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ac14f6e0d625237b1e5a34938081fd333"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_keyboard_widget.html#ac14f6e0d625237b1e5a34938081fd333">KeyboardWidget</a> (QWidget *parent=0)</td></tr>
-<tr class="memdesc:ac14f6e0d625237b1e5a34938081fd333"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a <a class="el" href="class_keyboard_widget.html">KeyboardWidget</a> consisting of a 10*5 grid of QLabel meant to look like a keyboard The Qwerty layout is loaded by default.  <a href="#ac14f6e0d625237b1e5a34938081fd333">More...</a><br/></td></tr>
-<tr class="separator:ac14f6e0d625237b1e5a34938081fd333"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aec29dc2f1059798655b028c3c677112a"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_keyboard_widget.html#aec29dc2f1059798655b028c3c677112a">labelOn</a> (int row, int column)</td></tr>
-<tr class="memdesc:aec29dc2f1059798655b028c3c677112a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the palette of the choosen QLabel to labelActifPalette.  <a href="#aec29dc2f1059798655b028c3c677112a">More...</a><br/></td></tr>
-<tr class="separator:aec29dc2f1059798655b028c3c677112a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a20598fb8ae364d5fce74f4299a2d3146"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_keyboard_widget.html#a20598fb8ae364d5fce74f4299a2d3146">labelOff</a> (int row, int column)</td></tr>
-<tr class="memdesc:a20598fb8ae364d5fce74f4299a2d3146"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the palette of the choosen QLabel to labelInactifPalette.  <a href="#a20598fb8ae364d5fce74f4299a2d3146">More...</a><br/></td></tr>
-<tr class="separator:a20598fb8ae364d5fce74f4299a2d3146"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a06dd2114d263d985e9bb12222d53eea2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a06dd2114d263d985e9bb12222d53eea2"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setColorScheme</b> (QColor letterOn, QColor <a class="el" href="class_keyboard_widget.html#aec29dc2f1059798655b028c3c677112a">labelOn</a>, QColor letterOff, QColor <a class="el" href="class_keyboard_widget.html#a20598fb8ae364d5fce74f4299a2d3146">labelOff</a>, QColor background)</td></tr>
-<tr class="separator:a06dd2114d263d985e9bb12222d53eea2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a35b569560ea90337c46ceacfe00d5da6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_keyboard_widget.html#a35b569560ea90337c46ceacfe00d5da6">getNumberOfLabels</a> () const </td></tr>
-<tr class="memdesc:a35b569560ea90337c46ceacfe00d5da6"><td class="mdescLeft">&#160;</td><td class="mdescRight">getNumberOfLabels  <a href="#a35b569560ea90337c46ceacfe00d5da6">More...</a><br/></td></tr>
-<tr class="separator:a35b569560ea90337c46ceacfe00d5da6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca75f607d5ab0e99376f540da46af586"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_keyboard_widget.html#aca75f607d5ab0e99376f540da46af586">KeyboardWidget</a> (int row, int column, QWidget *parent=0)</td></tr>
+<tr class="memdesc:aca75f607d5ab0e99376f540da46af586"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a <a class="el" href="class_keyboard_widget.html">KeyboardWidget</a> consisting of a 10*5 grid of QLabel meant to look like a keyboard The Qwerty layout is loaded by default.  <a href="#aca75f607d5ab0e99376f540da46af586">More...</a><br/></td></tr>
+<tr class="separator:aca75f607d5ab0e99376f540da46af586"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_class_flashable"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_flashable')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_flashable.html">Flashable</a></td></tr>
+<tr class="memitem:a6141ee971a304aff9ca2af46beef9aeb inherit pub_methods_class_flashable"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6141ee971a304aff9ca2af46beef9aeb"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Flashable</b> (int width, int height, QWidget *parent=0)</td></tr>
+<tr class="separator:a6141ee971a304aff9ca2af46beef9aeb inherit pub_methods_class_flashable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41f0cb7a12eb852f9da9885398d81f06 inherit pub_methods_class_flashable"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_flashable.html#a41f0cb7a12eb852f9da9885398d81f06">setColorScheme</a> (QColor letterOn, QColor <a class="el" href="class_flashable.html#a0e64bb19355ae3a7a8fe7049476ca850">labelOn</a>, QColor letterOff, QColor <a class="el" href="class_flashable.html#a639397b5dc6d6d049aee6a5eb8277a79">labelOff</a>, QColor background)</td></tr>
+<tr class="separator:a41f0cb7a12eb852f9da9885398d81f06 inherit pub_methods_class_flashable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e64bb19355ae3a7a8fe7049476ca850 inherit pub_methods_class_flashable"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_flashable.html#a0e64bb19355ae3a7a8fe7049476ca850">labelOn</a> (int row, int column)</td></tr>
+<tr class="memdesc:a0e64bb19355ae3a7a8fe7049476ca850 inherit pub_methods_class_flashable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the palette of the choosen QLabel to labelActifPalette.  <a href="#a0e64bb19355ae3a7a8fe7049476ca850">More...</a><br/></td></tr>
+<tr class="separator:a0e64bb19355ae3a7a8fe7049476ca850 inherit pub_methods_class_flashable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a639397b5dc6d6d049aee6a5eb8277a79 inherit pub_methods_class_flashable"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_flashable.html#a639397b5dc6d6d049aee6a5eb8277a79">labelOff</a> (int row, int column)</td></tr>
+<tr class="memdesc:a639397b5dc6d6d049aee6a5eb8277a79 inherit pub_methods_class_flashable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the palette of the choosen QLabel to labelInactifPalette.  <a href="#a639397b5dc6d6d049aee6a5eb8277a79">More...</a><br/></td></tr>
+<tr class="separator:a639397b5dc6d6d049aee6a5eb8277a79 inherit pub_methods_class_flashable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05949a2d49501a1c990b63f8b15fb31b inherit pub_methods_class_flashable"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_flashable.html#a05949a2d49501a1c990b63f8b15fb31b">getNumberOfLabels</a> () const </td></tr>
+<tr class="memdesc:a05949a2d49501a1c990b63f8b15fb31b inherit pub_methods_class_flashable"><td class="mdescLeft">&#160;</td><td class="mdescRight">getNumberOfLabels  <a href="#a05949a2d49501a1c990b63f8b15fb31b">More...</a><br/></td></tr>
+<tr class="separator:a05949a2d49501a1c990b63f8b15fb31b inherit pub_methods_class_flashable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d309913e4ee2fa8188a313664610eed inherit pub_methods_class_flashable"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_flashable.html#a0d309913e4ee2fa8188a313664610eed">oneByOneSearch</a> ()</td></tr>
+<tr class="memdesc:a0d309913e4ee2fa8188a313664610eed inherit pub_methods_class_flashable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flashes the label one by one.  <a href="#a0d309913e4ee2fa8188a313664610eed">More...</a><br/></td></tr>
+<tr class="separator:a0d309913e4ee2fa8188a313664610eed inherit pub_methods_class_flashable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a92ffd8e1de8bcc270e05b5c5ca52fce6 inherit pub_methods_class_flashable"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_flashable.html#a92ffd8e1de8bcc270e05b5c5ca52fce6">binarySearch</a> ()</td></tr>
+<tr class="memdesc:a92ffd8e1de8bcc270e05b5c5ca52fce6 inherit pub_methods_class_flashable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flashes the label in a binary search like pattern.  <a href="#a92ffd8e1de8bcc270e05b5c5ca52fce6">More...</a><br/></td></tr>
+<tr class="separator:a92ffd8e1de8bcc270e05b5c5ca52fce6 inherit pub_methods_class_flashable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a82a7c53ba367243f15d1037667e41042 inherit pub_methods_class_flashable"><td class="memItemLeft" align="right" valign="top">virtual QVector&lt; QString &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_flashable.html#a82a7c53ba367243f15d1037667e41042">getActiveLabelsContent</a> () const </td></tr>
+<tr class="memdesc:a82a7c53ba367243f15d1037667e41042 inherit pub_methods_class_flashable"><td class="mdescLeft">&#160;</td><td class="mdescRight">getActiveLabelsContent  <a href="#a82a7c53ba367243f15d1037667e41042">More...</a><br/></td></tr>
+<tr class="separator:a82a7c53ba367243f15d1037667e41042 inherit pub_methods_class_flashable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a419a101d0cebbdafb3715768f0427549 inherit pub_methods_class_flashable"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_flashable.html#a419a101d0cebbdafb3715768f0427549">selectHalve</a> ()</td></tr>
+<tr class="memdesc:a419a101d0cebbdafb3715768f0427549 inherit pub_methods_class_flashable"><td class="mdescLeft">&#160;</td><td class="mdescRight">select the halve currently flashing when in a <a class="el" href="class_flashable.html#a92ffd8e1de8bcc270e05b5c5ca52fce6" title="Flashes the label in a binary search like pattern. ">binarySearch()</a>  <a href="#a419a101d0cebbdafb3715768f0427549">More...</a><br/></td></tr>
+<tr class="separator:a419a101d0cebbdafb3715768f0427549 inherit pub_methods_class_flashable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ed11dbe71b8bb5a393fcd8c3b3de87b inherit pub_methods_class_flashable"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6ed11dbe71b8bb5a393fcd8c3b3de87b"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_flashable.html#a6ed11dbe71b8bb5a393fcd8c3b3de87b">allOff</a> ()</td></tr>
+<tr class="memdesc:a6ed11dbe71b8bb5a393fcd8c3b3de87b inherit pub_methods_class_flashable"><td class="mdescLeft">&#160;</td><td class="mdescRight">turn all label off <br/></td></tr>
+<tr class="separator:a6ed11dbe71b8bb5a393fcd8c3b3de87b inherit pub_methods_class_flashable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a09cb83f8da57900f8ea9c479414db1d8 inherit pub_methods_class_flashable"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a09cb83f8da57900f8ea9c479414db1d8"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_flashable.html#a09cb83f8da57900f8ea9c479414db1d8">allOn</a> ()</td></tr>
+<tr class="memdesc:a09cb83f8da57900f8ea9c479414db1d8 inherit pub_methods_class_flashable"><td class="mdescLeft">&#160;</td><td class="mdescRight">turn all label on <br/></td></tr>
+<tr class="separator:a09cb83f8da57900f8ea9c479414db1d8 inherit pub_methods_class_flashable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
-Static Public Attributes</h2></td></tr>
-<tr class="memitem:a956a83678f1d8f47b8124914ebb7ae43"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a956a83678f1d8f47b8124914ebb7ae43"></a>
-static const int&#160;</td><td class="memItemRight" valign="bottom"><b>KEYBOARD_WIDTH</b> = 10</td></tr>
-<tr class="separator:a956a83678f1d8f47b8124914ebb7ae43"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afc4f3fa688ec77d83120696f1a022725"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afc4f3fa688ec77d83120696f1a022725"></a>
-static const int&#160;</td><td class="memItemRight" valign="bottom"><b>KEYBOARD_HEIGHT</b> = 5</td></tr>
-<tr class="separator:afc4f3fa688ec77d83120696f1a022725"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
+Additional Inherited Members</h2></td></tr>
+<tr class="inherit_header pro_attribs_class_flashable"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_flashable')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="class_flashable.html">Flashable</a></td></tr>
+<tr class="memitem:a77da4cdd912f1ba0c37422f068b7d327 inherit pro_attribs_class_flashable"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a77da4cdd912f1ba0c37422f068b7d327"></a>
+QVector&lt; QLabel * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>vLabels_</b></td></tr>
+<tr class="separator:a77da4cdd912f1ba0c37422f068b7d327 inherit pro_attribs_class_flashable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="ac14f6e0d625237b1e5a34938081fd333"></a>
+<a class="anchor" id="aca75f607d5ab0e99376f540da46af586"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -160,9 +180,25 @@ static const int&#160;</td><td class="memItemRight" valign="bottom"><b>KEYBOARD_
         <tr>
           <td class="memname">KeyboardWidget::KeyboardWidget </td>
           <td>(</td>
-          <td class="paramtype">QWidget *&#160;</td>
-          <td class="paramname"><em>parent</em> = <code>0</code>)</td><td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>row</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>column</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QWidget *&#160;</td>
+          <td class="paramname"><em>parent</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -182,128 +218,9 @@ static const int&#160;</td><td class="memItemRight" valign="bottom"><b>KEYBOARD_
 
 </div>
 </div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a35b569560ea90337c46ceacfe00d5da6"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">int KeyboardWidget::getNumberOfLabels </td>
-          <td>(</td>
-          <td class="paramname">)</td><td></td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>getNumberOfLabels </p>
-<dl class="section return"><dt>Returns</dt><dd>the number of QLabels in the widget </dd></dl>
-
-<p>Implements <a class="el" href="class_flashable.html">Flashable</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a20598fb8ae364d5fce74f4299a2d3146"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void KeyboardWidget::labelOff </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>row</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>column</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Set the palette of the choosen QLabel to labelInactifPalette. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">row</td><td></td></tr>
-    <tr><td class="paramname">column</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Implements <a class="el" href="class_flashable.html">Flashable</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aec29dc2f1059798655b028c3c677112a"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void KeyboardWidget::labelOn </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>row</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>column</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Set the palette of the choosen QLabel to labelActifPalette. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">row</td><td></td></tr>
-    <tr><td class="paramname">column</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Implements <a class="el" href="class_flashable.html">Flashable</a>.</p>
-
-</div>
-</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>C:/Users/Alexandre/Programmation/MindWriterQt/MindWriter/<a class="el" href="keyboardwidget_8h_source.html">keyboardwidget.h</a></li>
-<li>C:/Users/Alexandre/Programmation/MindWriterQt/MindWriter/keyboardwidget.cpp</li>
+<li>C:/Users/Alexandre/Programmation/MindWriterAlex0216/MindWriterQt/MindWriter/<a class="el" href="keyboardwidget_8h_source.html">keyboardwidget.h</a></li>
+<li>C:/Users/Alexandre/Programmation/MindWriterAlex0216/MindWriterQt/MindWriter/keyboardwidget.cpp</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -311,7 +228,7 @@ static const int&#160;</td><td class="memItemRight" valign="bottom"><b>KEYBOARD_
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_keyboard_widget.html">KeyboardWidget</a></li>
-    <li class="footer">Generated on Wed Jun 19 2013 09:22:25 for MindWriter by
+    <li class="footer">Generated on Thu Jun 20 2013 10:57:55 for MindWriter by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.4 </li>
   </ul>
