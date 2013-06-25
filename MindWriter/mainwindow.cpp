@@ -179,6 +179,7 @@ void MainWindow::createActions()
 
 }
 
+
 void MainWindow::keyPressEvent(QKeyEvent *event)
 {
     if( event->key() == Qt::Key_Space && debouncer_)
@@ -190,15 +191,15 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
          case OneByOne:
             if(!currentWidget_->getActiveLabelsContent().isEmpty())
             {
-                QString letter = currentWidget_->getActiveLabelsContent().first();
-                textEdit->setText(textEdit->toPlainText() + letter);
+               updateTextEdit();
             }
             break;
         case BinarySearch:
             if(currentWidget_->selectHalve())
+                // selectHalve() return true when the halve has a size on 1, meaning
+                // the search is done
             {
-                QString letter = currentWidget_->getActiveLabelsContent().first();
-                textEdit->setText(textEdit->toPlainText() + letter);
+                updateTextEdit();
             }
             break;
         }
@@ -206,3 +207,23 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
     }
 }
 
+void MainWindow::updateTextEdit()
+{
+    QString string = currentWidget_->getActiveLabelsContent().first();
+
+    //translate special char like space and newline
+    if(string == "˽")
+        string = ' ';
+    else if (string == "↲")
+        string  = '\n';
+
+    //if string is backspace, remove one char from the textEdit
+    if (string == "←" && !textEdit->toPlainText().isEmpty())
+    {
+        int size = textEdit->toPlainText().size();
+        textEdit->setText(QString::fromStdString(textEdit->toPlainText().toStdString().substr(0, size -1)));
+    }
+    else
+        textEdit->setText(textEdit->toPlainText() + string);
+
+}

@@ -112,6 +112,7 @@ public slots:
 
 private:
     void createActions();
+    void updateTextEdit();
 
     KeyboardWidget *keyboardW;
     PredictionWidget *predictionW;
@@ -134,6 +135,7 @@ private:
     bool debouncer_;
     FlashMode flashMode_;
     int flashIndex_;
+
 
 
 private slots:
