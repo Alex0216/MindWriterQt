@@ -27,11 +27,12 @@
 #include <QPair>
 #include <QVector>
 #include <QKeyEvent>
+#include <QTimer>
 
 
 #include "keyboardwidget.h"
 #include "predictionwidget.h"
-#include "keyboardselectionwidget.h"
+
 
 /**
  * \brief The default color scheme for the program
@@ -111,6 +112,7 @@ public slots:
 
 private:
     void createActions();
+    void updateTextEdit();
 
     KeyboardWidget *keyboardW;
     PredictionWidget *predictionW;
@@ -133,6 +135,7 @@ private:
     bool debouncer_;
     FlashMode flashMode_;
     int flashIndex_;
+
 
 
 private slots:

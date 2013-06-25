@@ -35,6 +35,8 @@ FlashableWidget::FlashableWidget(int width, int height, QWidget *parent):
     }
 
     setLayout(grid);
+
+    oneByOneIndex_ = 0;
 }
 
 void FlashableWidget::setColorScheme(QColor letterOn, QColor labelOn,
@@ -118,26 +120,24 @@ int FlashableWidget::getNumberOfLabels() const
 
 bool FlashableWidget::oneByOneSearch()
 {
-    static int index = 0;
-
     QLabel* lastLabel;
-    if(index == 0)
+    if(oneByOneIndex_ == 0)
         lastLabel = vLabels_.last();
     else
-        lastLabel = vLabels_.at(index-1);
+        lastLabel = vLabels_.at(oneByOneIndex_-1);
 
     lastLabel->setPalette(inactiveLabelPalette);
     if(vActiveLabels_.contains(lastLabel))
         vActiveLabels_.remove(vActiveLabels_.indexOf(lastLabel));
 
-    if( index != vLabels_.size())
+    if( oneByOneIndex_ != vLabels_.size())
     {
-        vActiveLabels_.push_back(vLabels_.at(index));
-        vLabels_.at(index++)->setPalette(activeLabelPalette);
+        vActiveLabels_.push_back(vLabels_.at(oneByOneIndex_));
+        vLabels_.at(oneByOneIndex_++)->setPalette(activeLabelPalette);
     }
     else
     {
-        index = 0;
+        oneByOneIndex_ = 0;
         return true;
     }
 
@@ -284,5 +284,13 @@ void FlashableWidget::allOn()
     }
 }
 
+void FlashableWidget::reset()
+{
+    oneByOneIndex_ = 0;
+    vSelectedHalve_.clear();
+    vFirstHalve_.clear();
+    vSecondHalve_.clear();
+    allOff();
+}
 
 
