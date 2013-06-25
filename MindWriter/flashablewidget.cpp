@@ -288,6 +288,8 @@ void FlashableWidget::reset()
 {
     oneByOneIndex_ = 0;
     vSelectedHalve_.clear();
+    vFirstHalve_.clear();
+    vSecondHalve_.clear();
     allOff();
 }
 
