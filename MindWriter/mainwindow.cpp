@@ -117,8 +117,8 @@ void MainWindow::selectOneByOneFlashOption()
     if(flashMode_ != OneByOne)
     {
         flashMode_ = OneByOne;
-        predictionW->allOff();
-        keyboardW->allOff();
+        predictionW->reset();
+        keyboardW->reset();
         currentWidget_ = predictionW;
         flashIndex_ = 0;
         // Might need more resetting here...
@@ -130,8 +130,8 @@ void MainWindow::selectBinarySearchFlashOption()
     if(flashMode_ != BinarySearch)
     {
         flashMode_ = BinarySearch;
-        predictionW->allOff();
-        keyboardW->allOff();
+        predictionW->reset();
+        keyboardW->reset();
         currentWidget_ = keyboardW;
         //Might need more resetting here
     }

@@ -27,11 +27,12 @@
 #include <QPair>
 #include <QVector>
 #include <QKeyEvent>
+#include <QTimer>
 
 
 #include "keyboardwidget.h"
 #include "predictionwidget.h"
-#include "keyboardselectionwidget.h"
+
 
 /**
  * \brief The default color scheme for the program

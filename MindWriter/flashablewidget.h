@@ -108,6 +108,14 @@ public:
      */
     void allOn();
 
+    /**
+     * @brief reset the state of both oneByOneSearch
+     * and BinarySearch by setting oneByOneIndex_ to 0,
+     * clearing vSelectedHalve then calling allOff();
+     *
+     */
+    void reset();
+
 protected:
     /**
      * QVector containing all the QLabels of the widget
@@ -122,6 +130,8 @@ private:
     QPalette activeLabelPalette;
     QPalette backgroundPalette;
     QGridLayout *grid;
+
+    int oneByOneIndex_;
 
     QVector<QLabel*> vFirstHalve_;
     QVector<QLabel*> vSecondHalve_;

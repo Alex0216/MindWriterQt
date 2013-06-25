@@ -16,13 +16,11 @@ SOURCES += main.cpp\
         mainwindow.cpp \
     keyboardwidget.cpp \
     predictionwidget.cpp \
-    keyboardselectionwidget.cpp \
     flashablewidget.cpp
 
 HEADERS  += mainwindow.h \
     keyboardwidget.h \
     predictionwidget.h \
-    keyboardselectionwidget.h \
     flashablewidget.h
 
 FORMS    +=
