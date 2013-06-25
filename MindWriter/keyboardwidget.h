@@ -19,7 +19,6 @@
 #include <QString>
 
 #include "flashablewidget.h"
-#include "keyboardselectionwidget.h"
 
 class KeyboardWidget :public FlashableWidget
 {
